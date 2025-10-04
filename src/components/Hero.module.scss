@@ -1,0 +1,52 @@
+@import "../styles/mixins";
+@import "../styles/colors";
+
+.container {
+	height: 80svh;
+	width: 100%;
+	position: relative;
+	padding: 0 4rem;
+	@include flex-center;
+	justify-content: start;
+}
+
+.background {
+	position: absolute;
+	background-color: rgba(#000000, 0.2);
+	background: linear-gradient(
+		90deg,
+		rgba(#000000, 0.9) 10%,
+		rgba(#000000, 0.4)
+	);
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 0;
+}
+
+.image {
+	object-fit: cover;
+	z-index: -1;
+}
+
+.text {
+	color: $bg-dark;
+	line-height: 2;
+}
+
+.h1 {
+	color: white;
+	font-size: 4.8rem;
+	font-weight: bold;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	width: 60%;
+
+	gap: 4rem;
+
+	z-index: 100;
+}

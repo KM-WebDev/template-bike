@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300mm"
+   height="100mm"
+   viewBox="0 0 300 100"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="0.65260559"
+     inkscape:cx="802.16904"
+     inkscape:cy="392.27368"
+     inkscape:window-width="1759"
+     inkscape:window-height="1374"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid6"
+       units="mm"
+       originx="0"
+       originy="0"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:49.389px;font-family:'Lilita One';-inkscape-font-specification:'Lilita One';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#774241;fill-opacity:1;stroke-width:0.264999"
+       x="3.2713926"
+       y="76.843636"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.389px;font-family:'Gajraj One';-inkscape-font-specification:'Gajraj One, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#dd0303;fill-opacity:1;stroke-width:0.265"
+         x="3.2713926"
+         y="76.843636">Bike</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:49.389px;font-family:'Lilita One';-inkscape-font-specification:'Lilita One';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#774241;fill-opacity:1;stroke-width:0.264999"
+       x="128.81326"
+       y="44.62785"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.389px;font-family:'Gajraj One';-inkscape-font-specification:'Gajraj One, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#dd0303;fill-opacity:1;stroke-width:0.265"
+         x="128.81326"
+         y="44.62785">Hub</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:49.389px;font-family:'Lilita One';-inkscape-font-specification:'Lilita One';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#774241;fill-opacity:1;stroke-width:0.264999"
+       x="3.3214343"
+       y="43.997746"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.389px;font-family:'Gajraj One';-inkscape-font-specification:'Gajraj One, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.265"
+         x="3.3214343"
+         y="43.997746">Bike</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:49.389px;font-family:'Lilita One';-inkscape-font-specification:'Lilita One';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#774241;fill-opacity:1;stroke-width:0.264999"
+       x="128.81506"
+       y="77.471054"
+       id="text4"><tspan
+         sodipodi:role="line"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:49.389px;font-family:'Gajraj One';-inkscape-font-specification:'Gajraj One, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.265"
+         x="128.81506"
+         y="77.471054"
+         id="tspan5">Hub</tspan></text>
+  </g>
+</svg>

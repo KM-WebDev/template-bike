@@ -1,0 +1,20 @@
+/* [project]/src/components/Logo.module.scss.module.css [app-client] (css) */
+.Logo-module-scss-module__VIrlyq__logo {
+  font-family: Gajraj, Arial, Helvetica, sans-serif;
+  font-size: 2.4rem;
+  line-height: .65;
+}
+
+.Logo-module-scss-module__VIrlyq__first span:first-child {
+  color: #ddd;
+}
+
+.Logo-module-scss-module__VIrlyq__first span:last-child, .Logo-module-scss-module__VIrlyq__second span:first-child {
+  color: #dd0303;
+}
+
+.Logo-module-scss-module__VIrlyq__second span:last-child {
+  color: #ddd;
+}
+
+/*# sourceMappingURL=src_components_Logo_module_scss_module_css_bad6b30c._.single.css.map*/
