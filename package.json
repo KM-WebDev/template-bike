@@ -9,11 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.14",
+    "lenis": "^1.3.11",
+    "motion": "^12.23.22",
     "next": "15.5.4",
+    "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
-    "sass": "^1.93.2"
+    "sass": "^1.93.2",
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -22,7 +27,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
-    "prettier": "3.6.2",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "typescript": "^5"
   }
 }

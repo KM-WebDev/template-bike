@@ -1,11 +1,9 @@
 import { ReactNode } from "react";
 
-import styles from "./Main.module.scss";
-
 export default function Main({
-	children,
+    children,
 }: Readonly<{
-	children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-	return <main className={styles.main}>{children}</main>;
+    return <main className="w-full">{children}</main>;
 }

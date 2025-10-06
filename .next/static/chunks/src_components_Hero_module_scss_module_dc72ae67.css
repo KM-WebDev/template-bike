@@ -1,9 +1,9 @@
 /* [project]/src/components/Hero.module.scss.module.css [app-client] (css) */
 .Hero-module-scss-module__lXQcIW__container {
-  justify-content: start;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80svh;
+  height: 100svh;
   padding: 0 4rem;
   display: flex;
   position: relative;
@@ -38,11 +38,16 @@
 }
 
 .Hero-module-scss-module__lXQcIW__content {
-  z-index: 100;
   flex-direction: column;
   gap: 4rem;
-  width: 60%;
+  width: 50%;
   display: flex;
+}
+
+.Hero-module-scss-module__lXQcIW__contentWrapper {
+  z-index: 100;
+  width: 100%;
+  max-width: 1200px;
 }
 
 /*# sourceMappingURL=src_components_Hero_module_scss_module_dc72ae67.css.map*/
