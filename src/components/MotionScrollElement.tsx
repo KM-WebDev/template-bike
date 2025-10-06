@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext } from "react";
-import { MotionScrollContext } from "./MotionScroll";
+import { GlobalMotionScrollContext } from "./MotionScroll";
 import MotionElement from "./MotionElement";
 
 interface Props {
@@ -19,7 +19,7 @@ export default function MotionScrollElement({
     outputRange,
     property,
 }: Props) {
-    const context = useContext(MotionScrollContext);
+    const context = useContext(GlobalMotionScrollContext);
     if (!context) throw new Error("...");
 
     return (

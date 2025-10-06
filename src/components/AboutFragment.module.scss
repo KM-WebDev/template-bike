@@ -1,0 +1,47 @@
+@use "../styles/mixins";
+
+.fragment {
+    @include mixins.flex-center;
+    padding: 0 4rem;
+    position: relative;
+    gap: 6rem;
+    height: 100%;
+    width: 100%;
+}
+
+.image {
+    object-fit: cover;
+}
+
+.mainImageContainer {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.content {
+    width: 100%;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px;
+}
+
+.content-right {
+    order: 1;
+}
+
+.title {
+    @include mixins.h3;
+}
+
+.text {
+    @include mixins.text;
+}
+
+.fragment-1 {
+}
+.fragment-2 {
+}
+.fragment-3 {
+}

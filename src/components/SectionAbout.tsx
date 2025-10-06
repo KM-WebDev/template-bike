@@ -4,16 +4,15 @@ import Image from "next/image";
 
 import styles from "./SectionAbout.module.scss";
 import MotionScrollElement from "./MotionScrollElement";
-import MotionScroll, { MotionScrollContext } from "./MotionScroll";
+import MotionScroll, { GlobalMotionScrollContext } from "./MotionScroll";
 import { useContext } from "react";
-import { motion } from "motion/react";
 
 interface Props {
     viewRange: [number, number];
 }
 
 export default function SectionAbout({ viewRange }: Props) {
-    const context = useContext(MotionScrollContext);
+    const context = useContext(GlobalMotionScrollContext);
 
     console.log(context);
 

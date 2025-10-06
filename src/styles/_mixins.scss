@@ -1,5 +1,24 @@
 @mixin flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin text {
+    line-height: 2;
+}
+
+@mixin h1 {
+    font-size: 4.8rem;
+    font-weight: bolder;
+}
+
+@mixin h2 {
+    font-size: 3.6rem;
+    font-weight: bold;
+}
+
+@mixin h3 {
+    font-size: 2.8rem;
+    font-weight: bold;
 }

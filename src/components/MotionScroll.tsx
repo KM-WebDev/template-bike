@@ -7,17 +7,14 @@ import { MotionValue, useScroll } from "motion/react";
 interface Props {
     children: React.ReactNode;
     className?: string;
+    Context: React.Context<MotionScrollContext | null>;
 }
 
 interface MotionScrollContext {
     scrollYProgress: MotionValue<number>;
 }
 
-export const MotionScrollContext = createContext<MotionScrollContext | null>(
-    null
-);
-
-function MotionScroll({ children, className }: Props) {
+function MotionScroll({ children, className, Context }: Props) {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
@@ -25,11 +22,11 @@ function MotionScroll({ children, className }: Props) {
     });
 
     return (
-        <MotionScrollContext.Provider value={{ scrollYProgress }}>
+        <Context.Provider value={{ scrollYProgress }}>
             <div ref={container} className={className}>
                 {children}
             </div>
-        </MotionScrollContext.Provider>
+        </Context.Provider>
     );
 }
 
