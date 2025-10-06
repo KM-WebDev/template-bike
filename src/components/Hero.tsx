@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./Hero.module.scss";
 import * as motion from "motion/react-client";
 import MotionScrollElement from "./MotionScrollElement";
+import { HTMLDivRef } from "@/types/global";
 const textInitial = { x: -200, opacity: 0 };
 const textAnimate = { x: 0, opacity: 1 };
 const textTransition = {
@@ -10,9 +11,14 @@ const textTransition = {
     stiffness: 50,
     damping: 20,
 };
-export default function Hero() {
+
+interface Props {
+    ref: HTMLDivRef
+}
+
+export default function Hero({ ref }: Props) {
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={ref}>
             <div className={styles.background}></div>
             <MotionScrollElement
                 property="scale"

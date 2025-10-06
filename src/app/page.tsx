@@ -5,12 +5,13 @@ import { createContext } from "vm";
 
 export const GlobalMotionScrollContext =
     createContext<MotionScrollContext | null>(null);
+import HeroWithControls from "@/components/HeroWithControls";
 
 export default function Page() {
     return (
         <MotionScroll className="h-fit w-full">
-            <Hero />
             <About />
+            <HeroWithControls />
         </MotionScroll>
     );
 }
