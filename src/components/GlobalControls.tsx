@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { HTMLDivRef, HTMLRef } from "@/types/global";
 import { createContext, useRef } from "react";
@@ -8,12 +8,11 @@ interface Props {
 }
 
 interface Context {
-    navRef: HTMLRef
-    heroRef: HTMLDivRef
+    navRef: HTMLDivRef;
+    heroRef: HTMLDivRef;
 }
 
 export const GlobalControlsContext = createContext<Context | null>(null);
-
 
 export default function GlobalControls({ children }: Props) {
     const heroRef = useRef(null);
@@ -24,4 +23,3 @@ export default function GlobalControls({ children }: Props) {
         </GlobalControlsContext.Provider>
     );
 }
-

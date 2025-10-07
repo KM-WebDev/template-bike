@@ -1,11 +1,7 @@
 import { JSX } from "react";
-import { ReactNode } from "react";
 import Link from "next/link";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoMdMail } from "react-icons/io";
 
 import styles from "./Navigation.module.scss";
-import { HTMLRef } from "@/types/global";
 
 export interface NavigationRoutesEntry {
     name: string;
@@ -14,17 +10,16 @@ export interface NavigationRoutesEntry {
 
 export type NavigationRoutes = NavigationRoutesEntry[];
 
-interface NavigationProps {
+export interface NavigationProps {
     Logo?: JSX.Element;
     routes: NavigationRoutes;
-	ref: HTMLRef
 }
 
-export default function Navigation({ Logo, routes, ref }: NavigationProps) {
+export default function NavigationServer({ Logo, routes }: NavigationProps) {
     return (
-        <nav className={styles.nav} ref={ref}>
-			<div className={styles.logo}>{Logo}</div>
-			<div className={styles.nav_right}>
+        <nav className={styles.nav}>
+            <div className={styles.logo}>{Logo}</div>
+            <div className={styles.nav_right}>
                 <ul className={styles.list}>{generateNavList(routes)}</ul>
             </div>
             {/* <div className={styles.nav_top}>

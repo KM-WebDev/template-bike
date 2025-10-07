@@ -1,16 +1,15 @@
-'use client'
-
-import { useContext, useEffect } from "react";
-import { GlobalControlsContext } from "./GlobalControls";
-import Hero from "./Hero";
+import HeroClient from "./Hero.client";
+import HeroServer from "./Hero.server";
 
 export default function HeroWithControls() {
-    const context = useContext(GlobalControlsContext)
-    if (!context) throw new Error("...") // learnt from the best
+    console.log(
+        "Hero rendered on",
+        typeof window === "undefined" ? "server" : "client"
+    );
 
-    // useEffect(() => {
-    //     const {navRef, heroRef} = context;
-    //     console.log(navRef.current, heroRef.current);
-    // }, [])
-    return <Hero ref={context.heroRef}/>
+    return (
+        <HeroClient>
+            <HeroServer />
+        </HeroClient>
+    );
 }

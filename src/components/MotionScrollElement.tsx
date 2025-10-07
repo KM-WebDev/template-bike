@@ -1,8 +1,8 @@
 "use client";
 
 import { useContext } from "react";
-import { GlobalMotionScrollContext } from "./MotionScroll";
 import MotionElement from "./MotionElement";
+import { GlobalMotionScrollContext } from "./MotionScroll";
 
 interface Props {
     property: string;

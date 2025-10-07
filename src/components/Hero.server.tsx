@@ -12,13 +12,14 @@ const textTransition = {
     damping: 20,
 };
 
-interface Props {
-    ref: HTMLDivRef
-}
+export default function HeroServer() {
+    console.log(
+        "Hero rendered on",
+        typeof window === "undefined" ? "server" : "client"
+    );
 
-export default function Hero({ ref }: Props) {
     return (
-        <div className={styles.container} ref={ref}>
+        <div className={styles.container}>
             <div className={styles.background}></div>
             <MotionScrollElement
                 property="scale"

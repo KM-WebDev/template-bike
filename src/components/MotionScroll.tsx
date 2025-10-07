@@ -14,6 +14,9 @@ interface MotionScrollContext {
     scrollYProgress: MotionValue<number>;
 }
 
+export const GlobalMotionScrollContext =
+    createContext<MotionScrollContext | null>(null);
+
 function MotionScroll({ children, className, Context }: Props) {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -22,11 +25,11 @@ function MotionScroll({ children, className, Context }: Props) {
     });
 
     return (
-        <Context.Provider value={{ scrollYProgress }}>
+        <GlobalMotionScrollContext.Provider value={{ scrollYProgress }}>
             <div ref={container} className={className}>
                 {children}
             </div>
-        </Context.Provider>
+        </GlobalMotionScrollContext.Provider>
     );
 }
 
