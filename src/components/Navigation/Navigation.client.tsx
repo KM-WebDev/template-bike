@@ -1,7 +1,7 @@
 "use client";
 
 import { useContext, useEffect, useState } from "react";
-import { GlobalControlsContext } from "./GlobalControls";
+import { GlobalControlsContext } from "../GlobalControls";
 
 interface Props {
     children: React.ReactNode;
@@ -21,10 +21,8 @@ export default function NavigationClient({ children }: Props) {
             if (
                 heroRef.current.getBoundingClientRect().height < window.scrollY
             ) {
-                console.log("add");
                 setIsScrolled(true);
             } else {
-                console.log("remove");
                 setIsScrolled(false);
             }
         }

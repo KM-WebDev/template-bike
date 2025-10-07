@@ -1,0 +1,13 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.fragments {
+    position: sticky;
+    top: 0;
+}

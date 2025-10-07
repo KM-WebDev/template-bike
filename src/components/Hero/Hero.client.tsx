@@ -1,8 +1,7 @@
 "use client";
 
-import { useContext, useEffect } from "react";
-import { GlobalControlsContext } from "./GlobalControls";
-import Hero from "./Hero.server";
+import { useContext } from "react";
+import { GlobalControlsContext } from "../GlobalControls";
 
 interface Props {
     children: React.ReactNode;

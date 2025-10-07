@@ -1,11 +1,11 @@
-import About from "@/components/About";
-import HeroWithControls from "@/components/HeroWithControls";
-import MotionScroll from "@/components/MotionScroll";
+import About from "@/components/About/About";
+import Hero from "@/components/Hero/Hero";
+import MotionScroll from "@/components/motion/MotionScroll";
 
 export default function Page() {
     return (
         <MotionScroll className="h-fit w-full">
-            <HeroWithControls />
+            <Hero />
             <About />
         </MotionScroll>
     );

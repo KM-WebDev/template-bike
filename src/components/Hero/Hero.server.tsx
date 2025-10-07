@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import styles from "./Hero.module.scss";
 import * as motion from "motion/react-client";
-import MotionScrollElement from "./MotionScrollElement";
-import { HTMLDivRef } from "@/types/global";
+import MotionScrollElement from "../motion/MotionScrollElement";
+
 const textInitial = { x: -200, opacity: 0 };
 const textAnimate = { x: 0, opacity: 1 };
 const textTransition = {

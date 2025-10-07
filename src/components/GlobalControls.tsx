@@ -1,6 +1,6 @@
 "use client";
 
-import { HTMLDivRef, HTMLRef } from "@/types/global";
+import { HTMLDivRef } from "@/types/global";
 import { createContext, useRef } from "react";
 
 interface Props {

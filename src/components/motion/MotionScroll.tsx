@@ -1,7 +1,6 @@
 "use client";
 
 import React, { createContext, useRef } from "react";
-import LenisScroll from "./LenisScroll";
 import { MotionValue, useScroll } from "motion/react";
 
 interface Props {
@@ -17,7 +16,7 @@ interface MotionScrollContext {
 export const GlobalMotionScrollContext =
     createContext<MotionScrollContext | null>(null);
 
-function MotionScroll({ children, className, Context }: Props) {
+function MotionScroll({ children, className }: Props) {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
