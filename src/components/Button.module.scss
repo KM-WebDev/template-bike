@@ -1,0 +1,76 @@
+@use "../styles/colors";
+@use "../styles/mixins";
+
+$duration: 0.2s;
+
+.button {
+    @include mixins.flex-center;
+    border-radius: 5rem;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    gap: 1rem;
+
+    &:hover {
+        .circle {
+            width: 1em;
+            height: 1em;
+        }
+
+        .arrow {
+            scale: 1;
+        }
+        .content {
+            translate: 0;
+        }
+    }
+}
+
+.content {
+    transition: translate $duration;
+    translate: -0.2em;
+}
+
+.circlePlaceholder {
+    @include mixins.flex-center;
+    width: 1em;
+    height: 1em;
+}
+
+.circle {
+    transition:
+        width $duration,
+        height $duration;
+    @include mixins.flex-center;
+    background-color: colors.$bg;
+    border-radius: 50%;
+    position: relative;
+    width: 0.4em;
+    height: 0.4em;
+}
+
+.arrow {
+    scale: 0;
+    transition: scale $duration;
+    position: absolute;
+    color: colors.$text;
+    font-size: 0.8em;
+}
+
+.primary {
+    background-color: colors.$brand-dark;
+    color: colors.$bg;
+    border: 2px solid inset colors.$brand-dark;
+}
+
+.secondary {
+    color: colors.$bg;
+    border: 2px solid inset colors.$bg;
+}
+
+.transparent {
+    backdrop-filter: blur(8px);
+    color: colors.$bg;
+    background-color: rgba(#fff, 0.1);
+}

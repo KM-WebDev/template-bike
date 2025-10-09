@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "./Hero.module.scss";
 import * as motion from "motion/react-client";
 import MotionScrollElement from "../motion/MotionScrollElement";
+import HeroButtons from "./HeroButtons";
 
 const textInitial = { x: -200, opacity: 0 };
 const textAnimate = { x: 0, opacity: 1 };
@@ -49,13 +50,22 @@ export default function HeroServer() {
                     <motion.p
                         initial={textInitial}
                         animate={textAnimate}
-                        transition={{ ...textTransition, delay: 0.5 }}
+                        transition={{ ...textTransition, delay: 0.3 }}
                         className={styles.text}
                     >
                         Solidność, precyzja i zaufanie. Naprawiamy, regulujemy i
                         doradzamy – zawsze tak, jakby to był nasz rower. Zostaw
                         go w dobrych rękach – zajmiemy się resztą.
                     </motion.p>
+
+                    <motion.div
+                        initial={textInitial}
+                        animate={textAnimate}
+                        transition={{ ...textTransition, delay: 0.6 }}
+                        className={styles.buttons}
+                    >
+                        <HeroButtons />
+                    </motion.div>
                 </div>
             </div>
         </div>

@@ -5,24 +5,21 @@ import Image from "next/image";
 import styles from "./About.module.scss";
 import * as motion from "motion/react-client";
 
-import AboutFragment from "./AboutFragment";
+import AboutFragment, { Fragment } from "./AboutFragment";
 import { ImageObj } from "@/types/global";
 import { MotionStyle, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import VerticalProgressBar from "../VerticalProgressBar";
-
-interface Fragment {
-    id: string;
-    title: string;
-    text: string;
-    mainImage: ImageObj;
-}
 
 const fragments: Fragment[] = [
     {
         id: "1",
         title: "Pasja, która napędza",
         mainImage: { src: "/about-1-bikes.jpg", alt: "" },
+        subImages: [
+            { src: "/about-1-city.jpg", alt: "" },
+            { src: "/about-1-forest.jpg", alt: "" },
+        ],
         text: "Wierzymy, że rower to nie tylko środek transportu – to styl życia, sposób na zdrowie, wolność i troskę o środowisko. Naszą misją jest wspieranie każdego rowerzysty – od amatora po zawodowca – w bezpiecznej i komfortowej jeździe.",
     },
     {
@@ -40,45 +37,25 @@ const fragments: Fragment[] = [
 ];
 
 export default function About() {
-    const numFragments = fragments.length;
-
-    const ref = useRef(null);
-
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["-.2 start", "end end"],
-    });
     return (
-        <div
-            className={styles.container}
-            ref={ref}
-            style={{ height: 100 * numFragments + "svh" }}
-        >
-            <div className={styles.fragments}>
-                <VerticalProgressBar
-                    scrollYProgress={scrollYProgress}
-                    start={0}
-                    end={0}
-                />
+        <section className={styles.section}>
+            <div className={styles.container}>
                 {fragments.map((fragment, index) => {
-                    const start = index / numFragments;
-                    const end = (index + 1) / numFragments;
+                    const start = index / fragments.length;
+                    const end = (index + 1) / fragments.length;
 
                     return (
                         <AboutFragment
                             index={index}
                             start={start}
                             end={end}
-                            scrollYProgress={scrollYProgress}
                             key={fragment.id}
                             id={fragment.id}
-                            title={fragment.title}
-                            mainImage={fragment.mainImage}
-                            text={fragment.text}
+                            fragment={fragment}
                         />
                     );
                 })}
             </div>
-        </div>
+        </section>
     );
 }

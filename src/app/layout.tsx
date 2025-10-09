@@ -22,16 +22,12 @@ export default function RootLayout({
                 <LenisScroll />
                 <GlobalControls>
                     <Navigation
+                        type="center"
                         Logo={<Logo />}
                         routes={[
-                            {
-                                name: "Strona Główna",
-                                link: "/",
-                            },
-                            {
-                                name: "Opinie",
-                                link: "/",
-                            },
+                            { name: "Home", link: "/" },
+                            { name: "O nas", link: "about" },
+                            { name: "Usługi", link: "/services" },
                         ]}
                     />
                     <Main>{children}</Main>

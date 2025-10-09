@@ -10,78 +10,47 @@ import {
 import * as motion from "motion/react-client";
 import { useEffect, useState } from "react";
 
-interface AboutFragmentProps {
-    mainImage: ImageObj;
+export interface Fragment {
     id: string;
     title: string;
-    contentSide?: "left" | "right";
     text: string;
+    mainImage: ImageObj;
+    subImages?: ImageObj[];
+}
+
+interface AboutFragmentProps {
     index: number;
     start: number;
     end: number;
-    scrollYProgress: MotionValue<number>;
+    fragment: Fragment;
+    // scrollYProgress: MotionValue<number>;
 }
 
 export default function AboutFragment({
-    mainImage,
-    title,
-    id,
-    text,
-    contentSide = "left",
+    fragment,
     start,
     end,
     index,
-    scrollYProgress,
+    id,
 }: AboutFragmentProps) {
-    const [isActive, setIsActive] = useState(false);
-    const length = end - start;
-    const quarter = length / 8;
-    const quartiles = Array(7)
-        .fill(start)
-        .map((q, i) => q + quarter * (i + 1));
-
-    const opacity = useTransform(
-        scrollYProgress,
-        [start, quartiles[2], quartiles.at(-2), end],
-        [0, 1, 1, 0]
-    );
-
-    const imageX = useTransform(
-        scrollYProgress,
-        [start, quartiles[2], quartiles.at(-2), end],
-        [100, 0, 0, 100]
-    );
-
-    useEffect(() => {
-        const unsubscribe = scrollYProgress.on("change", (latest) => {
-            setIsActive(latest >= start && latest <= end);
-        });
-
-        return () => unsubscribe();
-    }, [scrollYProgress, start, end]);
-
     return (
         <motion.div
-            className={`${styles.fragment} ${styles[`fragment-${id}`]}`}
+            className={`${styles.fragment} ${styles["fragment-" + id]}`}
         >
-            <motion.div
-                style={{ opacity }}
-                className={`${styles.content} ${styles[`content-${contentSide}`]}`}
-            >
-                <p className={styles.title}>{title}</p>
-                <p className={styles.text}>{text}</p>
+            <motion.div className={styles.content}>
+                <p className={styles.title}>{fragment.title}</p>
+                <p className={styles.text}>{fragment.text}</p>
             </motion.div>
-            <motion.div
-                style={{ x: imageX, zIndex: isActive ? 1000 : -index }}
-                className={styles.mainImageContainer}
-            >
-                <div className={styles.mainImageWrapper}></div>
-                <Image
-                    src={mainImage.src}
-                    alt={mainImage.alt}
-                    fill
-                    className={styles.image}
-                />
+            <motion.div className={styles.mainImageContainer}>
+                <div className={styles.mainImageBackground} />
+                <div className={styles.mainImageWrapper}>
+                    <Image
+                        src={fragment.mainImage.src}
+                        alt={fragment.mainImage.alt}
+                        fill
+                        className={styles.image}
+                    />
+                </div>
             </motion.div>
         </motion.div>
     );

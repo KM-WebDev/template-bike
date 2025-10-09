@@ -2,6 +2,7 @@ import { JSX } from "react";
 import Link from "next/link";
 
 import styles from "./Navigation.module.scss";
+import NavLink from "./NavLink";
 
 export interface NavigationRoutesEntry {
     name: string;
@@ -13,13 +14,23 @@ export type NavigationRoutes = NavigationRoutesEntry[];
 export interface NavigationProps {
     Logo?: JSX.Element;
     routes: NavigationRoutes;
+    type?: "default" | "center";
 }
 
-export default function NavigationServer({ Logo, routes }: NavigationProps) {
+const navigationVariants = {
+    default: styles.navDefault,
+    center: styles.navCenter,
+};
+
+export default function NavigationServer({
+    Logo,
+    routes,
+    type = "default",
+}: NavigationProps) {
     return (
-        <nav className={styles.nav}>
+        <nav className={`${styles.nav} ${navigationVariants[type]}`}>
             <div className={styles.logo}>{Logo}</div>
-            <div className={styles.nav_right}>
+            <div className={styles.main}>
                 <ul className={styles.list}>{generateNavList(routes)}</ul>
             </div>
             {/* <div className={styles.nav_top}>
@@ -34,7 +45,7 @@ export default function NavigationServer({ Logo, routes }: NavigationProps) {
                         <span>666 666 666</span>
                     </a>
                 </div>
-            </div>
+            </div>ho
             <div className={styles.nav_bottom}>
                 <ul className={styles.list}>{generateNavList(routes)}</ul>
             </div> */}
@@ -51,16 +62,7 @@ function generateNavList(routes: NavigationRoutes) {
 function NavigationItem({ entry }: { entry: NavigationRoutesEntry }) {
     return (
         <li key={entry.name} className={styles.item}>
-            <Link href={entry.link} className={styles.link}>
-                {entry.name}
-            </Link>
+            <NavLink href={entry.link} name={entry.name} />
         </li>
     );
 }
-
-// NavigationWithControls  'use client' <-- Navigation 'use server'
-
-//  |
-//  v
-
-// const ref = useRef()

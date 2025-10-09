@@ -4,7 +4,7 @@ import MotionScroll from "@/components/motion/MotionScroll";
 
 export default function Page() {
     return (
-        <MotionScroll className="h-fit w-full">
+        <MotionScroll className="-z-10 h-fit w-full">
             <Hero />
             <About />
         </MotionScroll>

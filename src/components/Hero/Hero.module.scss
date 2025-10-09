@@ -6,7 +6,7 @@
     height: 100svh;
     width: 100%;
     padding: 0 4rem;
-    z-index: -1;
+    z-index: 1;
     position: relative;
     overflow: hidden;
 }
@@ -42,10 +42,17 @@
     flex-direction: column;
     width: 50%;
     gap: 4rem;
+    z-index: 100;
 }
 
 .contentWrapper {
     width: 100%;
     max-width: 1200px;
+    z-index: 100;
+}
+
+.buttons {
+    display: flex;
+    gap: 2rem;
     z-index: 100;
 }

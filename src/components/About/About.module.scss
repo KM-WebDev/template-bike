@@ -1,13 +1,17 @@
 @use "../../styles/mixins";
 @use "../../styles/variables";
 
-.container {
-    display: flex;
-    flex-direction: column;
+.section {
+    width: 100%;
+    @include mixins.flex-center;
     position: relative;
 }
 
-.fragments {
-    position: sticky;
-    top: 0;
+.container {
+    flex-direction: column;
+    display: flex;
+    gap: 16rem;
+    padding: 12rem 0;
+    width: 100%;
+    max-width: 1200px;
 }

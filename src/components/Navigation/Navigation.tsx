@@ -1,10 +1,10 @@
 import NavigationClient from "./Navigation.client";
 import NavigationServer, { NavigationProps } from "./Navigation.server";
 
-export default function Navigation({ Logo, routes }: NavigationProps) {
+export default function Navigation({ Logo, routes, type }: NavigationProps) {
     return (
         <NavigationClient>
-            <NavigationServer Logo={Logo} routes={routes} />
+            <NavigationServer type={type} Logo={Logo} routes={routes} />
         </NavigationClient>
     );
 }
