@@ -30,6 +30,7 @@ $duration: 0.2s;
 .content {
     transition: translate $duration;
     translate: -0.2em;
+    text-wrap: none;
 }
 
 .circlePlaceholder {

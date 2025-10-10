@@ -1,4 +1,4 @@
-import About from "@/components/About/About";
+import About from "@/components/About";
 import Hero from "@/components/Hero/Hero";
 import MotionScroll from "@/components/motion/MotionScroll";
 
