@@ -60,7 +60,7 @@ export default function HighlightServer() {
 
                 <div className="relative -z-1000 flex justify-center">
                     <div className="absolute -bottom-[22rem] w-[100vw] bg-[#ECECEC]">
-                        <div className="bg-gradient-to-r from-[#ffffff] to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-[25rem] text-transparent">
+                        <div className="bg-gradient-to-t from-[#ffffff] to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-[25rem] text-transparent">
                             BIKEHUB
                         </div>
                     </div>
