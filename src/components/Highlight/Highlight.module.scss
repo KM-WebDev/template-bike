@@ -1,0 +1,17 @@
+@use "../../styles/colors";
+@use "../../styles/mixins";
+
+.text {
+    @include mixins.text;
+    color: colors.$text-muted;
+}
+
+.element {
+    background-color: colors.$bg-light;
+
+    svg {
+        color: #666666;
+        width: 8rem;
+        height: 8rem;
+    }
+}
