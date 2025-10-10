@@ -29,32 +29,42 @@ export default function HighlightServer() {
                     <TopSection />
                     <Highlights />
                 </div>
-                <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
-                    <FaBicycle />
-                </FloatingIcon>
-                <FloatingIcon className="top-[20%] left-[5%] rotate-[12deg]">
-                    <FaBiking />
-                </FloatingIcon>
+                <div>
+                    <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
+                        <FaBicycle />
+                    </FloatingIcon>
+                    <FloatingIcon className="top-[20%] left-[5%] rotate-[12deg]">
+                        <FaBiking />
+                    </FloatingIcon>
 
-                <FloatingIcon className="top-[45%] left-[15%] rotate-[10deg]">
-                    <FaWrench />
-                </FloatingIcon>
+                    <FloatingIcon className="top-[45%] left-[15%] rotate-[10deg]">
+                        <FaWrench />
+                    </FloatingIcon>
 
-                <FloatingIcon className="top-[0%] left-[85%] rotate-[8deg]">
-                    <FaWrench />
-                </FloatingIcon>
+                    <FloatingIcon className="top-[0%] left-[85%] rotate-[8deg]">
+                        <FaWrench />
+                    </FloatingIcon>
 
-                <FloatingIcon className="top-[20%] left-[95%] rotate-[26deg]">
-                    <FaBicycle />
-                </FloatingIcon>
+                    <FloatingIcon className="top-[20%] left-[95%] rotate-[26deg]">
+                        <FaBicycle />
+                    </FloatingIcon>
 
-                <FloatingIcon className="top-[20%] left-[95%] rotate-[26deg]">
-                    <FaBicycle />
-                </FloatingIcon>
+                    <FloatingIcon className="top-[20%] left-[95%] rotate-[26deg]">
+                        <FaBicycle />
+                    </FloatingIcon>
 
-                <FloatingIcon className="top-[45%] left-[85%] rotate-[12deg]">
-                    <FaBiking />
-                </FloatingIcon>
+                    <FloatingIcon className="top-[45%] left-[85%] rotate-[12deg]">
+                        <FaBiking />
+                    </FloatingIcon>
+                </div>
+
+                <div className="relative -z-1000 flex justify-center">
+                    <div className="absolute -bottom-[22rem] w-[100vw] bg-[#ECECEC]">
+                        <div className="bg-gradient-to-r from-[#ffffff] to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-[25rem] text-transparent">
+                            BIKEHUB
+                        </div>
+                    </div>
+                </div>
             </Section.Content>
         </Section>
     );
