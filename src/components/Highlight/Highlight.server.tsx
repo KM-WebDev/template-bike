@@ -23,7 +23,7 @@ interface FloatingIconProps {
 
 export default function HighlightServer() {
     return (
-        <Section className="py-50">
+        <Section className="pb-50">
             <Section.Content className="relative">
                 <div className="flex flex-col justify-between">
                     <TopSection />
@@ -96,7 +96,6 @@ function Highlights() {
             >
                 <FaClock />
             </Element>
-
         </div>
     );
 }

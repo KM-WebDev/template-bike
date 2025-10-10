@@ -1,5 +1,4 @@
 import { JSX } from "react";
-import Link from "next/link";
 
 import styles from "./Navigation.module.scss";
 import NavLink from "./NavLink";

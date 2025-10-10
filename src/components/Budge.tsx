@@ -32,7 +32,7 @@ export default function Badge({
     const isInView = useInView(passedRef ? passedRef : ref, {
         once: true,
         amount: 1,
-        margin: "-100px",
+        margin: "0px 0px -100px 0px",
     });
     const controls = useAnimation();
 

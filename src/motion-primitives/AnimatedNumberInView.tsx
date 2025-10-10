@@ -34,7 +34,7 @@ export function AnimatedNumberInView({
         <div ref={ref}>
             <AnimatedNumber
                 className={cn(
-                    "inline-flex items-center font-mono text-2xl font-light text-zinc-800 dark:text-zinc-50",
+                    "inline-flex items-center font-mono text-2xl font-light text-zinc-800",
                     className
                 )}
                 springOptions={{
