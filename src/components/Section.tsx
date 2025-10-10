@@ -23,12 +23,7 @@ export default function Section({ children, className }: SectionProps) {
 
 function Content({ children, className }: ContentProps) {
     return (
-        <div
-            className={clsx(
-                "flex w-full max-w-[1200px] flex-col gap-[10rem]",
-                className
-            )}
-        >
+        <div className={clsx("flex w-full max-w-[1200px] flex-col", className)}>
             {children}
         </div>
     );

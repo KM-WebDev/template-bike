@@ -1,3 +1,5 @@
+import { ImageObj } from "@/types/global";
+
 export interface Fragment {
     title: string;
     text: string;

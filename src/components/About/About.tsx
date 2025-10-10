@@ -5,7 +5,7 @@ import { fragments } from "./aboutData";
 export default function About() {
     return (
         <Section className="py-50">
-            <Section.Content>
+            <Section.Content className="relative">
                 {fragments.map((fragment, index) => {
                     return (
                         <AboutFragment

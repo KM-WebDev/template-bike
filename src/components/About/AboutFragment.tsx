@@ -3,13 +3,7 @@
 import Image from "next/image";
 import styles from "./AboutFragment.module.scss";
 import { ImageObj } from "@/types/global";
-import {
-    MotionValue,
-    useAnimation,
-    useInView,
-    useMotionValueEvent,
-    useTransform,
-} from "motion/react";
+import { useAnimation, useInView } from "motion/react";
 import * as motion from "motion/react-client";
 import React, { useEffect, useRef } from "react";
 
@@ -24,49 +18,47 @@ interface AboutFragmentProps {
     fragment: Fragment;
 }
 
+const imageVariants = {
+    hidden: {
+        y: -50,
+        x: -60,
+        scale: 0,
+    },
+    fullVisible: {
+        y: 0,
+        x: 0,
+        scale: 1,
+        transition: {
+            type: "spring" as const, // <-- use spring for bounce
+            stiffness: 80, // <-- how bouncy
+            damping: 10, // <-- how quickly it settles
+            mass: 0.8,
+            duration: 0.3, // optional fallback
+        },
+    },
+};
+
 export default function AboutFragment({ fragment, id }: AboutFragmentProps) {
     const ref = useRef(null);
-    const isInView = useInView(ref, {
+
+    const isFullInView = useInView(ref, {
         once: true,
         amount: 1,
-        margin: "-200px",
     });
+    const isHalfInView = useInView(ref, { once: true, amount: 0.5 });
     const controls = useAnimation();
 
     useEffect(() => {
-        if (isInView) {
-            controls.start("visible");
+        if (isFullInView) {
+            controls.start("fullVisible");
         }
-    }, [isInView, controls]);
+    }, [isFullInView, controls]);
 
-    const variants = {
-        hidden: { opacity: 0, y: 50 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.6 },
-        },
-    };
-
-    const imageVariants = {
-        hidden: {
-            y: -50,
-            x: -60,
-            scale: 0,
-        },
-        visible: {
-            y: 0,
-            x: 0,
-            scale: 1,
-            transition: {
-                type: "spring" as const, // <-- use spring for bounce
-                stiffness: 80, // <-- how bouncy
-                damping: 10, // <-- how quickly it settles
-                mass: 0.8,
-                duration: 0.3, // optional fallback
-            },
-        },
-    };
+    useEffect(() => {
+        if (isHalfInView) {
+            controls.start("halfVisible");
+        }
+    }, [isHalfInView, controls]);
 
     return (
         <motion.div
