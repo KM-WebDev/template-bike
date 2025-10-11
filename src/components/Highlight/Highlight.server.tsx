@@ -9,64 +9,58 @@ import { FaClock } from "react-icons/fa";
 import { FaBiking } from "react-icons/fa";
 import { FaBicycle } from "react-icons/fa";
 import { cn } from "@/lib/utils";
-
-interface ElementProps {
-    children: React.ReactNode;
-    title: string;
-    content: string;
-}
-
-interface FloatingIconProps {
-    children: React.ReactNode;
-    className: string;
-}
+import FloatingIcon from "../FloatingIcon";
+import { Element } from "./HighlightElement";
+import { Banner } from "../Banner";
 
 export default function HighlightServer() {
     return (
-        <Section className="pb-0">
-            <Section.Content className="relative overflow-hidden">
+        <Section className="relative pb-50">
+            <Section.Content>
                 <div className="flex flex-col justify-between">
                     <TopSection />
                     <Highlights />
                 </div>
-                <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
-                    <FaBicycle />
-                </FloatingIcon>
-                <FloatingIcon className="top-[18%] left-[5%] rotate-[12deg]">
-                    <FaBiking />
-                </FloatingIcon>
-
-                <FloatingIcon className="top-[38%] left-[15%] rotate-[10deg]">
-                    <FaWrench />
-                </FloatingIcon>
-
-                <FloatingIcon className="top-[0%] left-[85%] rotate-[8deg]">
-                    <FaWrench />
-                </FloatingIcon>
-
-                <FloatingIcon className="top-[18%] left-[95%] rotate-[26deg]">
-                    <FaBicycle />
-                </FloatingIcon>
-
-                <FloatingIcon className="top-[38%] left-[85%] rotate-[12deg]">
-                    <FaBiking />
-                </FloatingIcon>
-                {/* 
-                <div className="relative -z-1000 flex h-[22rem] justify-center">
-                    <div className="absolute bottom-[0rem] w-[100vw] bg-[#ECECEC]">
-                        <div className="bg-gradient-to-t from-[#ffffff] to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-[25rem] text-transparent">
-                            BIKEHUB
-                        </div>
-                    </div>
-                </div> */}
             </Section.Content>
+            <Banner className="-z-10">
+                <Banner.Text text="BIKEHUB" />
+            </Banner>
         </Section>
+    );
+}
+
+function Icons() {
+    return (
+        <>
+            <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
+                <FaBicycle />
+            </FloatingIcon>
+            <FloatingIcon className="top-[18%] left-[5%] rotate-[12deg]">
+                <FaBiking />
+            </FloatingIcon>
+
+            <FloatingIcon className="top-[38%] left-[15%] rotate-[10deg]">
+                <FaWrench />
+            </FloatingIcon>
+
+            <FloatingIcon className="top-[0%] left-[85%] rotate-[8deg]">
+                <FaWrench />
+            </FloatingIcon>
+
+            <FloatingIcon className="top-[18%] left-[95%] rotate-[26deg]">
+                <FaBicycle />
+            </FloatingIcon>
+
+            <FloatingIcon className="top-[38%] left-[85%] rotate-[12deg]">
+                <FaBiking />
+            </FloatingIcon>
+        </>
     );
 }
 
 function TopSection() {
     return (
-        <div className="flex flex-col items-center justify-between gap-[3rem] pt-[20rem] pb-[20rem]">
+        <div className="relative flex flex-col items-center justify-between gap-[3rem]">
             <p className="text-[2.8rem] font-bold">Ludzie i Relacje</p>
             <p
                 className={cn(
@@ -80,13 +74,30 @@ function TopSection() {
                 każdej sytuacji.
             </p>
             <Button>Click me</Button>
+            <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+                <Icons />
+            </div>
         </div>
     );
 }
 
 function Highlights() {
     return (
-        <div className="flex w-full flex-col justify-between gap-4 px-4 md:flex-row">
+        <div
+            className={cn(
+                "relative flex w-full flex-col justify-between gap-3",
+                "md:flex-row",
+                "lg:gap-8"
+            )}
+        >
+            <Elements />
+        </div>
+    );
+}
+
+function Elements() {
+    return (
+        <>
             <Element
                 title="Mobilny serwis"
                 content="Nasz serwis posiada mobilną jednostkę serwisową, która dojedzie gdziekolwiek potrzebujesz na terenie miasta Kraków."
@@ -105,39 +116,6 @@ function Highlights() {
             >
                 <FaClock />
             </Element>
-        </div>
-    );
-}
-
-function FloatingIcon({ children, className }: FloatingIconProps) {
-    return (
-        <div
-            className={cn(
-                "absolute -z-1 -translate-x-[50%] translate-y-[50%] bg-red-600 text-[10rem] text-[#ececec]",
-                className
-            )}
-        >
-            {children}
-        </div>
-    );
-}
-
-function Element({ children, title, content }: ElementProps) {
-    return (
-        <div
-            className={cn(
-                "flex flex-col items-center md:gap-8 gap-2 rounded-[15px] px-12 pt-[1.2rem] pb-[1.8rem] sm:gap-2 sm:px-4",
-                styles.element
-            )}
-        >
-            <div className="flex w-full flex-row items-end gap-8 md:flex-col md:items-center">
-                <div className="text-[#666666] text-5xl">{children}</div>
-
-                <p className="text-[1.2rem] font-bold">
-                    {title}
-                </p>
-            </div>
-            <p className="flex md:text-center">{content}</p>
-        </div>
+        </>
     );
 }

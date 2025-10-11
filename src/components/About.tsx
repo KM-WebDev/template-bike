@@ -11,7 +11,7 @@ import Badge from "./Budge";
 
 export default function About() {
     return (
-        <Section className="px-5 py-[20rem]">
+        <Section className="py-[20rem]">
             <Section.Content className="relative">
                 <div className="flex flex-col gap-8 md:flex-row md:gap-6">
                     <AboutImage />
@@ -41,7 +41,13 @@ function AboutImage() {
 function Content() {
     return (
         <div className="z-1 flex w-full flex-1 flex-col gap-4 md:gap-6">
-            <div className="flex h-fit w-full flex-col gap-5 rounded-3xl bg-white px-6 py-6 shadow-lg md:gap-8 lg:p-[5rem]">
+            <div
+                className={cn(
+                    "flex h-fit w-full flex-col gap-5 rounded-3xl bg-white px-6 py-6 shadow-lg",
+                    "md:gap-8",
+                    "lg:p-[5rem]"
+                )}
+            >
                 <div className="flex flex-col gap-2 md:gap-3">
                     <h2 className="text-2xl font-bold">Ludzie i relacje</h2>
                     <p>
@@ -53,7 +59,12 @@ function Content() {
                 </div>
                 <Button className="w-fit">Zobacz więcej</Button>
             </div>
-            <Stats className="flex w-full justify-between gap-6 px-5" />
+            <Stats
+                className={cn(
+                    "max-xs:flex-col",
+                    "flex w-full justify-between gap-6 px-5"
+                )}
+            />
         </div>
     );
 }
@@ -71,7 +82,10 @@ function Stats({ className }: { className?: string }) {
 function Badges() {
     return (
         <>
-            <Badge text="Super cena" className="left-[50%] -translate-y-[50%]">
+            <Badge
+                text="Super cena"
+                className="left-[50%] -translate-x-[50%] -translate-y-[50%]"
+            >
                 <IoPricetag />
             </Badge>
             <Badge
