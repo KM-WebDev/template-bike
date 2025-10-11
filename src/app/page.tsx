@@ -2,6 +2,7 @@ import About from "@/components/About";
 import Hero from "@/components/Hero/Hero";
 import Highlight from "@/components/Highlight/Highlight";
 import Logos from "@/components/Logos";
+import Review from "@/components/Review/Review";
 import MotionScroll from "@/components/motion/MotionScroll";
 
 export default function Page() {
@@ -10,6 +11,8 @@ export default function Page() {
             <Hero />
             <Highlight />
             <About />
+            <Review />
+            
             {/* <Logos /> */}
         </MotionScroll>
     );
