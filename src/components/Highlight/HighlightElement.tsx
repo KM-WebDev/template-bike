@@ -7,7 +7,7 @@ interface ElementProps {
     content: string;
 }
 
-export function Element({ children, title, content }: ElementProps) {
+export default function Element({ children, title, content }: ElementProps) {
     return (
         <div
             className={cn(

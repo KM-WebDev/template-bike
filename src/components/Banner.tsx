@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 
 interface BannerProps {
-    className: string;
+    className?: string;
     children?: React.ReactNode;
 }
 
@@ -11,11 +11,11 @@ interface BannerTextProps {
     text?: string;
 }
 
-export function Banner({ children, className }: BannerProps) {
+export default function Banner({ children, className }: BannerProps) {
     return (
         <div
             className={cn(
-                "absolute bottom-0 h-fit w-full bg-[#ECECEC] font-['Racing_Sans_One']",
+                "absolute bottom-0 left-0 -z-10 h-fit w-full bg-[#ECECEC] font-['Racing_Sans_One']",
                 className
             )}
         >

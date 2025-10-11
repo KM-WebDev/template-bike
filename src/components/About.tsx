@@ -90,7 +90,7 @@ function Badges() {
             </Badge>
             <Badge
                 text="Szybka naprawa"
-                className="right-0 bottom-[10%] translate-x-[5%] md:translate-x-[15%]"
+                className="right-0 bottom-[10%] translate-x-[5%]"
             >
                 <FaClock />
             </Badge>

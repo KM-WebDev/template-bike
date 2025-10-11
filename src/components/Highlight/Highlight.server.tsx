@@ -1,31 +1,66 @@
-import Button from "../Button";
-import Section from "../Section";
+import { cn } from "@/lib/utils";
 
 import styles from "./Highlight.module.scss";
+import Button from "../Button";
+import Section from "../Section";
+import FloatingIcon from "../FloatingIcon";
+import Element from "./HighlightElement";
+import Banner from "../Banner";
 
 import { FaTruck } from "react-icons/fa";
 import { FaWrench } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import { FaBiking } from "react-icons/fa";
 import { FaBicycle } from "react-icons/fa";
-import { cn } from "@/lib/utils";
-import FloatingIcon from "../FloatingIcon";
-import { Element } from "./HighlightElement";
-import { Banner } from "../Banner";
 
 export default function HighlightServer() {
     return (
-        <Section className="relative pb-50">
-            <Section.Content>
-                <div className="flex flex-col justify-between">
-                    <TopSection />
-                    <Highlights />
-                </div>
+        <Section className="relative pb-[18rem]" padded={["top"]}>
+            <Section.Content className="gap-20">
+                <TopSection />
+                <Highlights />
             </Section.Content>
-            <Banner className="-z-10">
+            <Banner className="max-md:hidden">
                 <Banner.Text text="BIKEHUB" />
             </Banner>
         </Section>
+    );
+}
+
+function TopSection() {
+    return (
+        <div className="relative flex flex-col items-center justify-between gap-[3rem]">
+            <p className="text-[2.8rem] font-bold">Ludzie i Relacje</p>
+            <p
+                className={cn(
+                    "w-full text-center leading-[1.8] sm:w-[60%]",
+                    styles.text
+                )}
+            >
+                Chcemy tworzyć miejsce, do którego chętnie się wraca - nie tylko
+                po naprawę, ale też po dobrą radę i pozytywną energię. Budujemy
+                społeczność pasjonatów dwóch kółek, którzy mogą na nas liczyć w
+                każdej sytuacji.
+            </p>
+            <Button>Click me</Button>
+            <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+                <Icons />
+            </div>
+        </div>
+    );
+}
+
+function Highlights() {
+    return (
+        <div
+            className={cn(
+                "relative flex w-full flex-col justify-between gap-3",
+                "md:flex-row",
+                "lg:gap-8"
+            )}
+        >
+            <Elements />
+        </div>
     );
 }
 
@@ -55,43 +90,6 @@ function Icons() {
                 <FaBiking />
             </FloatingIcon>
         </>
-    );
-}
-
-function TopSection() {
-    return (
-        <div className="relative flex flex-col items-center justify-between gap-[3rem]">
-            <p className="text-[2.8rem] font-bold">Ludzie i Relacje</p>
-            <p
-                className={cn(
-                    "w-[80%] leading-[1.8] sm:w-[60%] sm:text-center",
-                    styles.text
-                )}
-            >
-                Chcemy tworzyć miejsce, do którego chętnie się wraca - nie tylko
-                po naprawę, ale też po dobrą radę i pozytywną energię. Budujemy
-                społeczność pasjonatów dwóch kółek, którzy mogą na nas liczyć w
-                każdej sytuacji.
-            </p>
-            <Button>Click me</Button>
-            <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
-                <Icons />
-            </div>
-        </div>
-    );
-}
-
-function Highlights() {
-    return (
-        <div
-            className={cn(
-                "relative flex w-full flex-col justify-between gap-3",
-                "md:flex-row",
-                "lg:gap-8"
-            )}
-        >
-            <Elements />
-        </div>
     );
 }
 
