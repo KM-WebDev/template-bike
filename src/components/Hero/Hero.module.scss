@@ -5,7 +5,7 @@
     @include flex-center;
     height: 100svh;
     width: 100%;
-    padding: 0 4rem;
+    padding: 0 2rem;
     z-index: 1;
     position: relative;
     overflow: hidden;
@@ -33,7 +33,7 @@
 
 .h1 {
     color: white;
-    font-size: 4.8rem;
+    font-size: 3.2rem;
     font-weight: bold;
 }
 
@@ -42,7 +42,7 @@
     flex-direction: column;
     width: 100%;
     max-width: 600px;
-    gap: 4rem;
+    gap: 2rem;
     z-index: 100;
 }
 
@@ -54,6 +54,15 @@
 
 .buttons {
     display: flex;
-    gap: 2rem;
+    gap: 1.6rem;
     z-index: 100;
+    flex-direction: column-reverse;
+
+    @media (width >= 30rem) {
+        flex-direction: row;
+    }
+
+    button {
+        width: fit-content;
+    }
 }
