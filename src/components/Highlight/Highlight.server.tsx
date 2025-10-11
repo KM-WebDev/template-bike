@@ -24,43 +24,41 @@ interface FloatingIconProps {
 export default function HighlightServer() {
     return (
         <Section className="pb-0">
-            <Section.Content className="relative">
+            <Section.Content className="relative overflow-hidden">
                 <div className="flex flex-col justify-between">
                     <TopSection />
                     <Highlights />
                 </div>
-                <div>
-                    <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
-                        <FaBicycle />
-                    </FloatingIcon>
-                    <FloatingIcon className="top-[18%] left-[5%] rotate-[12deg]">
-                        <FaBiking />
-                    </FloatingIcon>
+                <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
+                    <FaBicycle />
+                </FloatingIcon>
+                <FloatingIcon className="top-[18%] left-[5%] rotate-[12deg]">
+                    <FaBiking />
+                </FloatingIcon>
 
-                    <FloatingIcon className="top-[38%] left-[15%] rotate-[10deg]">
-                        <FaWrench />
-                    </FloatingIcon>
+                <FloatingIcon className="top-[38%] left-[15%] rotate-[10deg]">
+                    <FaWrench />
+                </FloatingIcon>
 
-                    <FloatingIcon className="top-[0%] left-[85%] rotate-[8deg]">
-                        <FaWrench />
-                    </FloatingIcon>
+                <FloatingIcon className="top-[0%] left-[85%] rotate-[8deg]">
+                    <FaWrench />
+                </FloatingIcon>
 
-                    <FloatingIcon className="top-[18%] left-[95%] rotate-[26deg]">
-                        <FaBicycle />
-                    </FloatingIcon>
+                <FloatingIcon className="top-[18%] left-[95%] rotate-[26deg]">
+                    <FaBicycle />
+                </FloatingIcon>
 
-                    <FloatingIcon className="top-[38%] left-[85%] rotate-[12deg]">
-                        <FaBiking />
-                    </FloatingIcon>
-                </div>
-
-                <div className="relative h-[22rem] -z-1000 flex justify-center">
+                <FloatingIcon className="top-[38%] left-[85%] rotate-[12deg]">
+                    <FaBiking />
+                </FloatingIcon>
+                {/* 
+                <div className="relative -z-1000 flex h-[22rem] justify-center">
                     <div className="absolute bottom-[0rem] w-[100vw] bg-[#ECECEC]">
                         <div className="bg-gradient-to-t from-[#ffffff] to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-[25rem] text-transparent">
                             BIKEHUB
                         </div>
                     </div>
-                </div>
+                </div> */}
             </Section.Content>
         </Section>
     );
@@ -70,7 +68,12 @@ function TopSection() {
     return (
         <div className="flex flex-col items-center justify-between gap-[3rem] pt-[20rem] pb-[20rem]">
             <p className="text-[2.8rem] font-bold">Ludzie i Relacje</p>
-            <p className={cn("w-[60%] text-center leading-[1.8]", styles.text)}>
+            <p
+                className={cn(
+                    "w-[80%] leading-[1.8] sm:w-[60%] sm:text-center",
+                    styles.text
+                )}
+            >
                 Chcemy tworzyć miejsce, do którego chętnie się wraca - nie tylko
                 po naprawę, ale też po dobrą radę i pozytywną energię. Budujemy
                 społeczność pasjonatów dwóch kółek, którzy mogą na nas liczyć w
@@ -83,7 +86,7 @@ function TopSection() {
 
 function Highlights() {
     return (
-        <div className="flex justify-between">
+        <div className="flex w-full flex-col justify-between gap-4 px-4 sm:flex-row">
             <Element
                 title="Mobilny serwis"
                 content="Nasz serwis posiada mobilną jednostkę serwisową, która dojedzie gdziekolwiek potrzebujesz na terenie miasta Kraków."
@@ -110,7 +113,7 @@ function FloatingIcon({ children, className }: FloatingIconProps) {
     return (
         <div
             className={cn(
-                "absolute -translate-x-[50%] translate-y-[50%] text-[10rem] text-[#ececec]",
+                "absolute -z-1 -translate-x-[50%] translate-y-[50%] bg-red-600 text-[10rem] text-[#ececec]",
                 className
             )}
         >
@@ -123,15 +126,17 @@ function Element({ children, title, content }: ElementProps) {
     return (
         <div
             className={cn(
-                "flex w-[35rem] flex-col items-center rounded-[15px] pt-[2rem] pb-[3rem]",
+                "flex flex-row items-center gap-12 rounded-[15px] xs:px-12 pt-[2rem] pb-[3rem] sm:flex-col sm:gap-0",
                 styles.element
             )}
         >
-            {children}
-            <p className="mt-[1rem] mb-[1rem] text-[2.8rem] font-bold">
-                {title}
-            </p>
-            <p className="flex text-center">{content}</p>
+            <div>{children}</div>
+            <div className="w-full">
+                <p className="mt-[1rem] mb-[1rem] text-[2.8rem] font-bold">
+                    {title}
+                </p>
+                <p className="flex sm:text-center">{content}</p>
+            </div>
         </div>
     );
 }
