@@ -23,7 +23,7 @@ interface FloatingIconProps {
 
 export default function HighlightServer() {
     return (
-        <Section className="pb-50">
+        <Section className="pb-0">
             <Section.Content className="relative">
                 <div className="flex flex-col justify-between">
                     <TopSection />
@@ -33,11 +33,11 @@ export default function HighlightServer() {
                     <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
                         <FaBicycle />
                     </FloatingIcon>
-                    <FloatingIcon className="top-[20%] left-[5%] rotate-[12deg]">
+                    <FloatingIcon className="top-[18%] left-[5%] rotate-[12deg]">
                         <FaBiking />
                     </FloatingIcon>
 
-                    <FloatingIcon className="top-[45%] left-[15%] rotate-[10deg]">
+                    <FloatingIcon className="top-[38%] left-[15%] rotate-[10deg]">
                         <FaWrench />
                     </FloatingIcon>
 
@@ -45,21 +45,17 @@ export default function HighlightServer() {
                         <FaWrench />
                     </FloatingIcon>
 
-                    <FloatingIcon className="top-[20%] left-[95%] rotate-[26deg]">
+                    <FloatingIcon className="top-[18%] left-[95%] rotate-[26deg]">
                         <FaBicycle />
                     </FloatingIcon>
 
-                    <FloatingIcon className="top-[20%] left-[95%] rotate-[26deg]">
-                        <FaBicycle />
-                    </FloatingIcon>
-
-                    <FloatingIcon className="top-[45%] left-[85%] rotate-[12deg]">
+                    <FloatingIcon className="top-[38%] left-[85%] rotate-[12deg]">
                         <FaBiking />
                     </FloatingIcon>
                 </div>
 
-                <div className="relative -z-1000 flex justify-center">
-                    <div className="absolute -bottom-[22rem] w-[100vw] bg-[#ECECEC]">
+                <div className="relative h-[22rem] -z-1000 flex justify-center">
+                    <div className="absolute bottom-[0rem] w-[100vw] bg-[#ECECEC]">
                         <div className="bg-gradient-to-t from-[#ffffff] to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-[25rem] text-transparent">
                             BIKEHUB
                         </div>
