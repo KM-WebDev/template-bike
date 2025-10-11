@@ -126,18 +126,18 @@ function Element({ children, title, content }: ElementProps) {
     return (
         <div
             className={cn(
-                "flex flex-col items-center gap-8 rounded-[15px] sm:px-4 px-12 pt-[1.2rem] pb-[1.8rem] sm:gap-2",
+                "flex flex-col items-center md:gap-8 gap-2 rounded-[15px] px-12 pt-[1.2rem] pb-[1.8rem] sm:gap-2 sm:px-4",
                 styles.element
             )}
         >
-            <div className="flex sm:flex-row flex-col w-full items-center gap-8">
-                <div>{children}</div>
+            <div className="flex w-full flex-row items-end gap-8 md:flex-col md:items-center">
+                <div className="text-[#666666] text-5xl">{children}</div>
 
-                <p className="mt-[0.6rem] mb-[0.6rem] text-[1.2rem] font-bold">
+                <p className="text-[1.2rem] font-bold">
                     {title}
                 </p>
             </div>
-            <p className="flex sm:text-center">{content}</p>
+            <p className="flex md:text-center">{content}</p>
         </div>
     );
 }
