@@ -38,7 +38,7 @@ export default function NavigationClient({ children }: Props) {
         <div
             data-scrolled={isScrolled ? "true" : "false"}
             ref={navRef}
-            className="fixed z-[10000] w-full"
+            className="group/nav fixed z-[10000] w-full"
         >
             {children}
         </div>

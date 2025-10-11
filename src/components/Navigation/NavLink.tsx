@@ -1,14 +1,13 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavLinkProps {
     href: string;
     name: string;
 }
-
-import styles from "./Navigation.module.scss";
-import { usePathname } from "next/navigation";
 
 export default function NavLink({ href, name }: NavLinkProps) {
     const pathname = usePathname();
@@ -17,7 +16,10 @@ export default function NavLink({ href, name }: NavLinkProps) {
     return (
         <Link
             href={href}
-            className={`${styles.link} ${isActive && styles["link--active"]}`}
+            className={cn(
+                "z-10 rounded-full px-4 py-2 text-white",
+                isActive && "bg-red-700"
+            )}
         >
             {name}
         </Link>

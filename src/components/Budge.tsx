@@ -49,7 +49,7 @@ export default function Badge({
             variants={variants}
             animate={controls}
             className={cn(
-                "bg-opacity-0 absolute z-1 flex items-center justify-center gap-6 rounded-2xl bg-white/85 px-8 py-4 shadow-2xl backdrop-blur",
+                "bg-opacity-0 absolute z-1 flex items-center justify-center gap-6 rounded-2xl bg-white/85 px-4 py-2 shadow-2xl backdrop-blur",
                 className
             )}
         >
