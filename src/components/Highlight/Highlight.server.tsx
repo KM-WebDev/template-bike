@@ -86,7 +86,7 @@ function TopSection() {
 
 function Highlights() {
     return (
-        <div className="flex w-full flex-col justify-between gap-4 px-4 sm:flex-row">
+        <div className="flex w-full flex-col justify-between gap-4 px-4 md:flex-row">
             <Element
                 title="Mobilny serwis"
                 content="Nasz serwis posiada mobilną jednostkę serwisową, która dojedzie gdziekolwiek potrzebujesz na terenie miasta Kraków."
@@ -126,17 +126,18 @@ function Element({ children, title, content }: ElementProps) {
     return (
         <div
             className={cn(
-                "flex flex-row items-center gap-12 rounded-[15px] xs:px-12 pt-[2rem] pb-[3rem] sm:flex-col sm:gap-0",
+                "flex flex-col items-center gap-8 rounded-[15px] sm:px-4 px-12 pt-[1.2rem] pb-[1.8rem] sm:gap-2",
                 styles.element
             )}
         >
-            <div>{children}</div>
-            <div className="w-full">
-                <p className="mt-[1rem] mb-[1rem] text-[2.8rem] font-bold">
+            <div className="flex sm:flex-row flex-col w-full items-center gap-8">
+                <div>{children}</div>
+
+                <p className="mt-[0.6rem] mb-[0.6rem] text-[1.2rem] font-bold">
                     {title}
                 </p>
-                <p className="flex sm:text-center">{content}</p>
             </div>
+            <p className="flex sm:text-center">{content}</p>
         </div>
     );
 }
