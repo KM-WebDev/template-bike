@@ -1,10 +1,10 @@
 "use client";
 
-import { HTMLDivRef } from "@/types/global";
+import { HTMLDivRef } from "@/lib/types/global";
 import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedNumber } from "./AnimatedNumber";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 
 interface AnimatedNumberInViewProps {
     value: number;

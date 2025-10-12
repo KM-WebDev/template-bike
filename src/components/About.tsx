@@ -1,17 +1,15 @@
 import Image from "next/image";
 import Section from "./Section";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 import { IoPricetag } from "react-icons/io5";
 import { FaClock, FaPhoneAlt } from "react-icons/fa";
 import Button from "./Button";
-import { AnimatedNumberInView } from "@/motion-primitives/AnimatedNumberInView";
-import { TextRoll } from "@/motion-primitives/TextRoll";
 import BusinessStat from "./BusinessStat";
 import Badge from "./Budge";
 
 export default function About() {
     return (
-        <Section className="py-[20rem]">
+        <Section>
             <Section.Content className="relative">
                 <div className="flex flex-col gap-8 md:flex-row md:gap-6">
                     <AboutImage />

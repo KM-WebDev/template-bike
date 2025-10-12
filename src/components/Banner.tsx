@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 import React from "react";
 
 interface BannerProps {
@@ -15,7 +15,7 @@ export default function Banner({ children, className }: BannerProps) {
     return (
         <div
             className={cn(
-                "absolute bottom-0 left-0 -z-10 h-fit w-full bg-[#ECECEC] font-['Racing_Sans_One']",
+                "absolute right-0 bottom-0 left-0 -z-10 bg-[#ECECEC]",
                 className
             )}
         >
@@ -28,7 +28,7 @@ function Text({ className, text }: BannerTextProps) {
     return (
         <div
             className={cn(
-                "bg-gradient-to-t from-[#ffffff] to-[#f5f5f5] bg-clip-text text-center text-[15rem] text-transparent",
+                "bg-gradient-to-t from-[#fff] from-20% to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-xl text-transparent",
                 className
             )}
         >

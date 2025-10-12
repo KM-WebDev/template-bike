@@ -1,7 +1,7 @@
 import { JSX } from "react";
 
 import NavLink from "./NavLink";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 import Logo from "../Logo";
 
 export interface NavigationRoutesEntry {

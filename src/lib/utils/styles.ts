@@ -1,11 +1,6 @@
-import { CssDirection, TailwindDirection } from "@/types/global";
-import { isCssDirectionArray } from "@/types/guards";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
+import { CssDirection, TailwindDirection } from "@/lib/types/global";
+import { isCssDirectionArray } from "@/lib/types/guards";
 
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs));
-}
 
 export function getTailwindDirectionName(dir: CssDirection) {
     const mapping: Record<CssDirection, TailwindDirection> = {

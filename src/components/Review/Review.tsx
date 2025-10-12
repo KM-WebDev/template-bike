@@ -1,5 +1,5 @@
 import { FaQuoteRight } from "react-icons/fa";
-import Section from "../Section";
+import { cn } from "@/lib/utils/cn";
 
 import {
     Carousel,
@@ -8,7 +8,8 @@ import {
     CarouselItem,
     CarouselIndicator,
 } from "../../motion-primitives/Carousel";
-import { cn } from "@/lib/utils";
+
+import Section from "../Section";
 
 export default function Review() {
     return (

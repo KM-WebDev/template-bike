@@ -1,8 +1,5 @@
-import { cn, getTailwindDirections } from "@/lib/utils";
-import { CssDirection, TailwindDirection } from "@/types/global";
-import { isCssDirectionArray } from "@/types/guards";
-import { filterCssDirections } from "../lib/utils";
-import { ClassValue } from "clsx";
+import { cn } from "@/lib/utils/cn";
+import { CssDirection } from "@/lib/types/global";
 
 interface SectionProps {
     children: React.ReactNode;
@@ -22,19 +19,19 @@ interface FragmentProps {
 }
 
 const sectionPaddingTop = cn(
-    "max-xs:pt-4",
-    "pt-6",
-    "md:pt-12",
-    "lg:pt-14",
+    "max-xs:pt-12",
+    "pt-16",
+    "md:pt-20",
+    "lg:pt-24",
     "xl:pt-30",
     "2xl:pt-40"
 );
 
 const sectionPaddingBottom = cn(
-    "max-xs:pb-4",
-    "pb-6",
-    "md:pb-12",
-    "lg:pb-14",
+    "max-xs:pb-12",
+    "pb-16",
+    "md:pb-20",
+    "lg:pb-24",
     "xl:pb-30",
     "2xl:pb-40"
 );
@@ -44,6 +41,7 @@ export default function Section({
     className,
     padded = ["top", "bottom"],
 }: SectionProps) {
+    console.log(padded);
     return (
         <section
             className={cn(
@@ -59,10 +57,10 @@ export default function Section({
 }
 
 const contentGap = cn(
-    "max-xs:gap-4",
-    "gap-6",
-    "md:gap-12",
-    "lg:gap-14",
+    "max-xs:gap-12",
+    "gap-16",
+    "md:gap-20",
+    "lg:gap-24",
     "xl:gap-30",
     "2xl:gap-40"
 );
@@ -84,9 +82,4 @@ function Content({ children, className, gapped = true }: ContentProps) {
     );
 }
 
-function Fragment({ children, className }: FragmentProps) {
-    return <div className={cn("")}>{children}</div>;
-}
-
 Section.Content = Content;
-Section.Fragment = Fragment;

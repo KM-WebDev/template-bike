@@ -4,6 +4,7 @@ import styles from "./Hero.module.scss";
 import * as motion from "motion/react-client";
 import MotionScrollElement from "../motion/MotionScrollElement";
 import HeroButtons from "./HeroButtons";
+import Heading from "../Heading";
 
 const textInitial = { x: -200, opacity: 0 };
 const textAnimate = { x: 0, opacity: 1 };
@@ -14,11 +15,6 @@ const textTransition = {
 };
 
 export default function HeroServer() {
-    console.log(
-        "Hero rendered on",
-        typeof window === "undefined" ? "server" : "client"
-    );
-
     return (
         <div className={styles.container}>
             <div className={styles.background}></div>
@@ -38,14 +34,15 @@ export default function HeroServer() {
 
             <div className={styles.contentWrapper}>
                 <div className={styles.content}>
-                    <motion.h1
+                    <motion.div
                         initial={textInitial}
                         animate={textAnimate}
                         transition={textTransition}
-                        className={styles.h1}
                     >
-                        Profesjonalny Serwis Rowerowy w Krakowie
-                    </motion.h1>
+                        <Heading semantic="h1" className="text-white">
+                            Profesjonalny Serwis Rowerowy w Krakowie
+                        </Heading>
+                    </motion.div>
 
                     <motion.p
                         initial={textInitial}

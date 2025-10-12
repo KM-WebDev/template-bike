@@ -4,8 +4,7 @@ import React, { MouseEventHandler } from "react";
 
 import styles from "./Button.module.scss";
 import { FaArrowRight } from "react-icons/fa";
-import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 
 interface ButtonProps {
     children: React.ReactNode;

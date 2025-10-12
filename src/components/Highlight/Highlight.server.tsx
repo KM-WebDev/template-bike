@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 
 import styles from "./Highlight.module.scss";
 import Button from "../Button";
@@ -12,17 +12,19 @@ import { FaWrench } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import { FaBiking } from "react-icons/fa";
 import { FaBicycle } from "react-icons/fa";
+import HighlightBanner from "./HighlightBanner";
 
 export default function HighlightServer() {
     return (
-        <Section className="relative pb-[18rem]" padded={["top"]}>
+        <Section
+            className="relative pb-[7rem] md:!pb-[12rem] lg:!pb-[18rem]"
+            padded={["top", "bottom"]}
+        >
             <Section.Content className="gap-20">
                 <TopSection />
                 <Highlights />
             </Section.Content>
-            <Banner className="max-md:hidden">
-                <Banner.Text text="BIKEHUB" />
-            </Banner>
+            <HighlightBanner />
         </Section>
     );
 }
@@ -43,7 +45,7 @@ function TopSection() {
                 każdej sytuacji.
             </p>
             <Button>Click me</Button>
-            <div className="absolute top-0 right-0 bottom-0 left-0 overflow-hidden">
+            <div className="absolute top-0 right-0 bottom-0 left-0">
                 <Icons />
             </div>
         </div>
@@ -64,31 +66,45 @@ function Highlights() {
     );
 }
 
+function Icon({
+    className,
+    children,
+}: {
+    className: string;
+    children: React.ReactNode;
+}) {
+    return (
+        <FloatingIcon className={cn("text-[5rem] max-sm:hidden", className)}>
+            {children}
+        </FloatingIcon>
+    );
+}
+
 function Icons() {
     return (
         <>
-            <FloatingIcon className="top-[0%] left-[15%] rotate-[-25deg]">
+            <Icon className="top-[15%] left-[20%] rotate-[-25deg]">
                 <FaBicycle />
-            </FloatingIcon>
-            <FloatingIcon className="top-[18%] left-[5%] rotate-[12deg]">
+            </Icon>
+            <Icon className="top-[50%] left-[5%] rotate-[12deg]">
                 <FaBiking />
-            </FloatingIcon>
+            </Icon>
 
-            <FloatingIcon className="top-[38%] left-[15%] rotate-[10deg]">
+            <Icon className="top-[85%] left-[15%] rotate-[10deg]">
                 <FaWrench />
-            </FloatingIcon>
+            </Icon>
 
-            <FloatingIcon className="top-[0%] left-[85%] rotate-[8deg]">
+            <Icon className="top-[15%] left-[85%] rotate-[8deg]">
                 <FaWrench />
-            </FloatingIcon>
+            </Icon>
 
-            <FloatingIcon className="top-[18%] left-[95%] rotate-[26deg]">
+            <Icon className="top-[50%] left-[95%] rotate-[26deg]">
                 <FaBicycle />
-            </FloatingIcon>
+            </Icon>
 
-            <FloatingIcon className="top-[38%] left-[85%] rotate-[12deg]">
+            <Icon className="top-[85%] left-[80%] rotate-[12deg]">
                 <FaBiking />
-            </FloatingIcon>
+            </Icon>
         </>
     );
 }

@@ -8,10 +8,6 @@ interface Props {
 }
 
 export default function HeroClient({ children }: Props) {
-    console.log(
-        "Hero rendered on",
-        typeof window === "undefined" ? "server" : "client"
-    );
     const context = useContext(GlobalControlsContext);
     if (!context) throw new Error("..."); // learnt from the best
     return <div ref={context.heroRef}>{children}</div>;

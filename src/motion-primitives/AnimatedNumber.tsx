@@ -1,6 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { HTMLDivRef } from "@/types/global";
+import { cn } from "@/lib/utils/cn";
 import { motion, SpringOptions, useSpring, useTransform } from "motion/react";
 import { useEffect } from "react";
 

@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/cn";
 
 interface FloatingIconProps {
     children: React.ReactNode;
-    className: string;
+    className?: string;
 }
 
 export default function FloatingIcon({
@@ -12,7 +12,7 @@ export default function FloatingIcon({
     return (
         <div
             className={cn(
-                "absolute -z-1 -translate-x-[50%] translate-y-[50%] text-[10rem] text-[#ececec]",
+                "absolute -z-1 -translate-x-[50%] -translate-y-[50%] text-[#ececec]",
                 className
             )}
         >

@@ -2,7 +2,7 @@
 
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { GlobalControlsContext } from "../GlobalControls";
-import { HTMLDivRef } from "@/types/global";
+import { HTMLDivRef } from "@/lib/types/global";
 
 interface Props {
     children: React.ReactNode;

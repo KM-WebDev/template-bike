@@ -1,8 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { HTMLDivRef } from "@/types/global";
-import { motion, useAnimate, useAnimation, useInView } from "motion/react";
+import { cn } from "@/lib/utils/cn";
+import { HTMLDivRef } from "@/lib/types/global";
+import { motion, useAnimation, useInView } from "motion/react";
 import { useEffect, useRef } from "react";
 
 interface BadgeProps {

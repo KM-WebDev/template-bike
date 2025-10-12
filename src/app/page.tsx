@@ -11,8 +11,8 @@ export default function Page() {
             <Hero />
             <Highlight />
             <About />
-            <Review />
-            
+            {/* <Review /> */}
+
             {/* <Logos /> */}
         </MotionScroll>
     );
