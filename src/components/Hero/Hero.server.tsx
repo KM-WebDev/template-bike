@@ -5,6 +5,7 @@ import * as motion from "motion/react-client";
 import MotionScrollElement from "../motion/MotionScrollElement";
 import HeroButtons from "./HeroButtons";
 import Heading from "../Heading";
+import { MotionScroll } from "../motion/MotionScroll";
 
 const textInitial = { x: -200, opacity: 0 };
 const textAnimate = { x: 0, opacity: 1 };
@@ -18,10 +19,13 @@ export default function HeroServer() {
     return (
         <div className={styles.container}>
             <div className={styles.background}></div>
-            <MotionScrollElement
-                property="scale"
-                inputRange={[0, 1]}
-                outputRange={[1, 2]}
+
+            <MotionScroll
+                transform={{
+                    property: "scale",
+                    inputRange: [0, 1],
+                    outputRange: [1, 2],
+                }}
                 className="absolute -z-1 h-full w-full"
             >
                 <Image
@@ -30,7 +34,7 @@ export default function HeroServer() {
                     fill
                     className="relative object-cover"
                 />
-            </MotionScrollElement>
+            </MotionScroll>
 
             <div className={styles.contentWrapper}>
                 <div className={styles.content}>

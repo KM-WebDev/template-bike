@@ -5,14 +5,14 @@ import Button from "../Button";
 import Section from "../Section";
 import FloatingIcon from "../FloatingIcon";
 import Element from "./HighlightElement";
-import Banner from "../Banner";
 
 import { FaTruck } from "react-icons/fa";
 import { FaWrench } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import { FaBiking } from "react-icons/fa";
 import { FaBicycle } from "react-icons/fa";
-import HighlightBanner from "./HighlightBanner";
+import Banner from "../Banner";
+import { MotionScroll, MotionScrollContainer } from "../motion/MotionScroll";
 
 export default function HighlightServer() {
     return (
@@ -24,7 +24,24 @@ export default function HighlightServer() {
                 <TopSection />
                 <Highlights />
             </Section.Content>
-            <HighlightBanner />
+            <Banner>
+                <MotionScrollContainer>
+                    <MotionScroll
+                        useContainer={true}
+                        options={{ offset: ["start start", "end end"] }}
+                        transform={{
+                            property: "translateX",
+                            inputRange: [0, 1],
+                            outputRange: ["-100svw", "100svw"],
+                        }}
+                    >
+                        <Banner.Text
+                            text="BIKEHUB"
+                            className="text-[5rem] md:text-[10rem] lg:text-[15rem]"
+                        />
+                    </MotionScroll>
+                </MotionScrollContainer>
+            </Banner>
         </Section>
     );
 }

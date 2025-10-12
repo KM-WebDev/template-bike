@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import { GlobalControlsContext } from "../GlobalControls";
+import { MotionScroll } from "../motion/MotionScroll";
 
 interface Props {
     children: React.ReactNode;
