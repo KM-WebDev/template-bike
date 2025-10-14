@@ -1,47 +1,26 @@
-import { cn } from "@/lib/utils/cn";
-
-import styles from "./Highlight.module.scss";
-import Button from "../Button";
-import Section from "../Section";
-import FloatingIcon from "../FloatingIcon";
-import Element from "./HighlightElement";
-
 import { FaTruck } from "react-icons/fa";
 import { FaWrench } from "react-icons/fa";
 import { FaClock } from "react-icons/fa";
 import { FaBiking } from "react-icons/fa";
 import { FaBicycle } from "react-icons/fa";
-import Banner from "../Banner";
-import { MotionScroll, MotionScrollContainer } from "../motion/MotionScroll";
+
+import { cn } from "@/lib/utils/cn";
+
+import styles from "./Highlight.module.scss";
+import Button from "../Button";
+import Section from "../Section";
+import Element from "./HighlightElement";
+import HighlightBanner from "./HighlightBanner";
+import HighlightIcons from "./HighlightIcons";
 
 export default function HighlightServer() {
     return (
-        <Section
-            className="relative pb-[7rem] md:!pb-[12rem] lg:!pb-[18rem]"
-            padded={["top", "bottom"]}
-        >
+        <Section className="relative pb-[7rem] md:!pb-[12rem] lg:!pb-[18rem]">
             <Section.Content className="gap-20">
                 <TopSection />
                 <Highlights />
             </Section.Content>
-            <Banner>
-                <MotionScrollContainer>
-                    <MotionScroll
-                        useContainer={true}
-                        options={{ offset: ["start start", "end end"] }}
-                        transform={{
-                            property: "translateX",
-                            inputRange: [0, 1],
-                            outputRange: ["-100svw", "100svw"],
-                        }}
-                    >
-                        <Banner.Text
-                            text="BIKEHUB"
-                            className="text-[5rem] md:text-[10rem] lg:text-[15rem]"
-                        />
-                    </MotionScroll>
-                </MotionScrollContainer>
-            </Banner>
+            <HighlightBanner />
         </Section>
     );
 }
@@ -62,8 +41,8 @@ function TopSection() {
                 każdej sytuacji.
             </p>
             <Button>Click me</Button>
-            <div className="absolute top-0 right-0 bottom-0 left-0">
-                <Icons />
+            <div className="absolute top-0 right-0 bottom-0 left-0 -z-1">
+                <HighlightIcons />
             </div>
         </div>
     );
@@ -80,49 +59,6 @@ function Highlights() {
         >
             <Elements />
         </div>
-    );
-}
-
-function Icon({
-    className,
-    children,
-}: {
-    className: string;
-    children: React.ReactNode;
-}) {
-    return (
-        <FloatingIcon className={cn("text-[5rem] max-sm:hidden", className)}>
-            {children}
-        </FloatingIcon>
-    );
-}
-
-function Icons() {
-    return (
-        <>
-            <Icon className="top-[15%] left-[20%] rotate-[-25deg]">
-                <FaBicycle />
-            </Icon>
-            <Icon className="top-[50%] left-[5%] rotate-[12deg]">
-                <FaBiking />
-            </Icon>
-
-            <Icon className="top-[85%] left-[15%] rotate-[10deg]">
-                <FaWrench />
-            </Icon>
-
-            <Icon className="top-[15%] left-[85%] rotate-[8deg]">
-                <FaWrench />
-            </Icon>
-
-            <Icon className="top-[50%] left-[95%] rotate-[26deg]">
-                <FaBicycle />
-            </Icon>
-
-            <Icon className="top-[85%] left-[80%] rotate-[12deg]">
-                <FaBiking />
-            </Icon>
-        </>
     );
 }
 

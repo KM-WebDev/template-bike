@@ -13,11 +13,6 @@ interface ContentProps {
     gapped?: boolean;
 }
 
-interface FragmentProps {
-    children: React.ReactNode;
-    className?: string;
-}
-
 const sectionPaddingTop = cn(
     "max-xs:pt-12",
     "pt-16",
@@ -41,7 +36,6 @@ export default function Section({
     className,
     padded = ["top", "bottom"],
 }: SectionProps) {
-    console.log(padded);
     return (
         <section
             className={cn(

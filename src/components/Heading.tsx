@@ -8,18 +8,14 @@ interface HeadingProps {
     className?: string;
 }
 
-function getHeadingStyles(type: HeadingType): string {
-    let className = "";
-
-    if (type === "h1") className = "text-6xl font-bold";
-    if (type === "h2") className = "";
-    if (type === "h3") className = "";
-    if (type === "h4") className = "";
-    if (type === "h5") className = "";
-    if (type === "h6") className = "";
-
-    return className;
-}
+const headingStyles = {
+    h1: "text-6xl font-bold",
+    h2: "",
+    h3: "",
+    h4: "",
+    h5: "",
+    h6: "",
+};
 
 export default function Heading({
     children,
@@ -29,13 +25,9 @@ export default function Heading({
 }: HeadingProps) {
     const Tag = semantic ? semantic : "p";
     const styleTarget = styling ? styling : semantic;
-
     return (
         <Tag
-            className={cn(
-                styleTarget && getHeadingStyles(styleTarget),
-                className
-            )}
+            className={cn(styleTarget && headingStyles[styleTarget], className)}
         >
             {children}
         </Tag>

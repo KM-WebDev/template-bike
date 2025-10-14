@@ -12,7 +12,6 @@ interface NavLinkProps {
 export default function NavLink({ href, name }: NavLinkProps) {
     const pathname = usePathname();
     const isActive = pathname === href || pathname.slice(1).startsWith(href);
-    console.log(pathname.slice(1));
     return (
         <Link
             href={href}

@@ -15,9 +15,11 @@ interface BadgeProps {
 const variants = {
     hidden: {
         opacity: 0,
+        scale: 0,
     },
 
     visible: {
+        scale: 1,
         opacity: 1,
     },
 };

@@ -1,5 +1,3 @@
-import { JSX } from "react";
-
 import NavLink from "./NavLink";
 import { cn } from "@/lib/utils/cn";
 import Logo from "../Logo";
@@ -17,7 +15,6 @@ export interface NavigationProps {
 
 export default function NavigationServer({ routes }: NavigationProps) {
     return (
-        // <nav className={`${styles.nav} ${navigationVariants[type]}`}>
         <nav
             className={cn(
                 "z-50 flex h-full w-full items-center justify-center px-2 py-4"
