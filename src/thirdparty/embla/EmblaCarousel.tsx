@@ -23,7 +23,7 @@ type PropType = {
 
 const EmblaCarousel: React.FC<PropType> = (props) => {
     const { slides, options } = props;
-    const progressNode = useRef<HTMLElement | null>(null);
+    const progressNode = useRef<HTMLDivElement >(null);
     
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [
         Autoplay({ playOnInit: false, delay: 3000 }),
@@ -39,11 +39,9 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     const { autoplayIsPlaying, toggleAutoplay, onAutoplayButtonClick } =
         useAutoplay(emblaApi);
 
-    // God only knows what I did here, let it stay that way...
-    const result = progressNode as any as RefObject<HTMLElement>
     const { showAutoplayProgress } = useAutoplayProgress(
         emblaApi,
-        result
+        progressNode
     );
 
     return (
