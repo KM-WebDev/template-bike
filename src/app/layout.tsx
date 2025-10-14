@@ -22,8 +22,6 @@ export default function RootLayout({
                 <LenisScroll />
                 <GlobalControls>
                     <Navigation
-                        type="center"
-                        Logo={<Logo />}
                         routes={[
                             { name: "Home", link: "/" },
                             { name: "O nas", link: "about" },
