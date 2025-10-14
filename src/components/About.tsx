@@ -10,7 +10,7 @@ import Badge from "./Budge";
 export default function About() {
     return (
         <Section>
-            <Section.Content className="relative">
+            <Section.Content className="relative pb-[300rem]">
                 <div className="flex flex-col gap-8 md:flex-row md:gap-6">
                     <AboutImage />
                     <Content />
@@ -28,8 +28,9 @@ function AboutImage() {
                 <Image
                     src="/about.jpg"
                     alt="Pracownik serwisu naprawia koło roweru"
-                    className="object-cover"
+                    className="relative object-cover"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
             </div>
         </div>

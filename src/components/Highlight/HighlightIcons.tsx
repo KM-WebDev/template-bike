@@ -53,6 +53,7 @@ function Icon({
                     ease: "linear",
                 }}
                 style={{ transformOrigin: "center" }}
+                className="transform-gpu will-change-transform"
             >
                 {children}
             </motion.div>

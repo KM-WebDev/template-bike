@@ -6,6 +6,7 @@ import {
     UseScrollOptions,
     useTransform,
 } from "motion/react";
+import { RefObject, useEffect, useState } from "react";
 
 interface Transform {
     property: string;
@@ -15,7 +16,7 @@ interface Transform {
 }
 
 interface useMotionScrollParams {
-    ref: HTMLDivRef | false;
+    ref: HTMLDivRef;
     options?: UseScrollOptions;
     transform: Transform;
 }
@@ -25,12 +26,21 @@ export function useMotionScroll({
     options: scrollOptions = {},
     transform,
 }: useMotionScrollParams) {
-    if (ref && ref.current) scrollOptions.target = ref;
+    const [target, setTarget] = useState<RefObject<HTMLDivElement | null>>({
+        current: null,
+    });
+    if (target && target.current) scrollOptions.target = target;
     const { scrollYProgress } = useScroll(scrollOptions);
     const fallback = useMotionValue(0);
     const safeScroll = scrollYProgress ? scrollYProgress : fallback;
     const { inputRange, outputRange, options } = transform;
     const value = useTransform(safeScroll, inputRange, outputRange, options);
+
+    useEffect(() => {
+        if (ref?.current) {
+            setTarget(ref);
+        }
+    }, [ref]);
 
     return value;
 }

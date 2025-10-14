@@ -4,6 +4,7 @@ import { useMotionScroll } from "@/hooks/useMotionScroll";
 import { HTMLDivRef } from "@/lib/types/global";
 import { motion, TransformOptions, UseScrollOptions } from "motion/react";
 import { createContext, useContext, useRef } from "react";
+import { cn } from "@/lib/utils/cn";
 
 interface MotionScrollContainerProps {
     children: React.ReactNode;
@@ -53,19 +54,19 @@ export function MotionScroll({
     children,
     transform,
     className,
-    useContainer = false,
+    useContainer = true,
     options,
 }: MotionScrollProps) {
     const { scrollContainerRef } = useContext(MotionScrollContext);
     const value = useMotionScroll({
-        ref: useContainer ? scrollContainerRef : false,
+        ref: useContainer ? scrollContainerRef : { current: null },
         transform,
         options,
     });
     return (
         <motion.div
             style={{ [transform.property]: value }}
-            className={className}
+            className={cn("transform-gpu will-change-transform", className)}
         >
             {children}
         </motion.div>

@@ -28,7 +28,7 @@ function Text({ className, text }: BannerTextProps) {
     return (
         <div
             className={cn(
-                "bg-gradient-to-t from-[#fff] from-20% to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-xl text-transparent",
+                "bg-gradient-to-t from-[#fff] from-20% to-[#f5f5f5] bg-clip-text text-center font-['Racing_Sans_One'] text-[15rem] text-transparent",
                 className
             )}
         >
