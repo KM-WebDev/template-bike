@@ -10,92 +10,22 @@ import {
 } from "../../motion-primitives/Carousel";
 
 import Section from "../Section";
+import EmblaCarousel from "@/thirdparty/embla/EmblaCarousel";
 
 export default function Review() {
     return (
         <Section>
             <Section.Content>
-                <div className="relative px-20">
-                    <Carousel>
-                        <CarouselContent className="-ml-4">
-                            <CarouselItem
-                                className={cn(
-                                    "max-md:basis-1/1",
-                                    "max-xl:basis-1/2",
-                                    "basis-1/3 pl-4"
-                                )}
-                            >
-                                <Element />
-                            </CarouselItem>
-                            <CarouselItem
-                                className={cn(
-                                    "max-md:basis-1/1",
-                                    "max-xl:basis-1/2",
-                                    "basis-1/3 pl-4"
-                                )}
-                            >
-                                <Element />
-                            </CarouselItem>
-                            <CarouselItem
-                                className={cn(
-                                    "max-md:basis-1/1",
-                                    "max-xl:basis-1/2",
-                                    "basis-1/3 pl-4"
-                                )}
-                            >
-                                <Element />
-                            </CarouselItem>
-                            <CarouselItem
-                                className={cn(
-                                    "max-md:basis-1/1",
-                                    "max-xl:basis-1/2",
-                                    "basis-1/3 pl-4"
-                                )}
-                            >
-                                <Element />
-                            </CarouselItem>
-                            <CarouselItem
-                                className={cn(
-                                    "max-md:basis-1/1",
-                                    "max-xl:basis-1/2",
-                                    "basis-1/3 pl-4"
-                                )}
-                            >
-                                <Element />
-                            </CarouselItem>
-                            <CarouselItem
-                                className={cn(
-                                    "max-md:basis-1/1",
-                                    "max-xl:basis-1/2",
-                                    "basis-1/3 pl-4"
-                                )}
-                            >
-                                <Element />
-                            </CarouselItem>
-                            <CarouselItem
-                                className={cn(
-                                    "max-md:basis-1/1",
-                                    "max-xl:basis-1/2",
-                                    "basis-1/3 pl-4"
-                                )}
-                            >
-                                <Element />
-                            </CarouselItem>
-                        </CarouselContent>
-                        <CarouselNavigation alwaysShow />
-                        <CarouselIndicator />
-                    </Carousel>
-                </div>
-                {/* <div className="flex flex-col items-center gap-30 bg-[#ececec] pt-5 pb-30">
-                    <p className="text-2xl font-bold">
-                        Opinie naszych klientów
-                    </p>
-                    <div className={cn("flex flex-row gap-10")}>
-                        <Element />
-                        <Element />
-                        <Element />
-                    </div>
-                </div> */}
+                <EmblaCarousel
+                    slides={Array(8)
+                        .fill(0)
+                        .map((_, i) => {
+                            return <Element key={i} />
+                        })}
+                    options={
+                        {loop: true}
+                    }
+                />
             </Section.Content>
         </Section>
     );

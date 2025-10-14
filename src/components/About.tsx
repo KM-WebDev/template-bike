@@ -10,7 +10,7 @@ import Badge from "./Budge";
 export default function About() {
     return (
         <Section>
-            <Section.Content className="relative pb-[300rem]">
+            <Section.Content className="relative">
                 <div className="flex flex-col gap-8 md:flex-row md:gap-6">
                     <AboutImage />
                     <Content />
