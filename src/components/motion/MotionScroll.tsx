@@ -2,17 +2,7 @@
 
 import { useMotionScroll } from "@/hooks/useMotionScroll";
 import { HTMLDivRef } from "@/lib/types/global";
-// import React, { createContext, useRef } from "react";
-// import { MotionValue, useScroll } from "motion/react";
-import {
-    motion,
-    MotionValue,
-    TransformOptions,
-    useMotionValue,
-    useScroll,
-    UseScrollOptions,
-    useTransform,
-} from "motion/react";
+import { motion, TransformOptions, UseScrollOptions } from "motion/react";
 import { createContext, useContext, useRef } from "react";
 
 interface MotionScrollContainerProps {

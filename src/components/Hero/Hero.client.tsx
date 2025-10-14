@@ -2,14 +2,12 @@
 
 import { useContext } from "react";
 import { GlobalControlsContext } from "../GlobalControls";
-import { MotionScroll } from "../motion/MotionScroll";
 
 interface Props {
     children: React.ReactNode;
 }
 
 export default function HeroClient({ children }: Props) {
-    const context = useContext(GlobalControlsContext);
-    if (!context) throw new Error("..."); // learnt from the best
-    return <div ref={context.heroRef}>{children}</div>;
+    const { heroRef } = useContext(GlobalControlsContext);
+    return <div ref={heroRef}>{children}</div>;
 }

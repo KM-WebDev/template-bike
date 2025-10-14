@@ -12,7 +12,10 @@ interface Context {
     heroRef: HTMLDivRef;
 }
 
-export const GlobalControlsContext = createContext<Context | null>(null);
+export const GlobalControlsContext = createContext<Context>({
+    navRef: { current: null },
+    heroRef: { current: null },
+});
 
 export default function GlobalControls({ children }: Props) {
     const heroRef = useRef(null);

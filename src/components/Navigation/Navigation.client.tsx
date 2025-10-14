@@ -12,10 +12,8 @@ export default function NavigationClient({ children }: Props) {
     const [isScrolled, setIsScrolled] = useState(false);
     const navRef: HTMLDivRef = useRef(null);
 
-    const context = useContext(GlobalControlsContext);
-    if (!context) throw new Error("..."); // learnt from the best
+    const { heroRef } = useContext(GlobalControlsContext);
 
-    const { heroRef } = context;
     const handleScroll = useCallback(() => {
         if (!heroRef.current || !navRef.current) return;
 
@@ -32,7 +30,7 @@ export default function NavigationClient({ children }: Props) {
     useEffect(() => {
         handleScroll();
         window.addEventListener("scroll", handleScroll);
-    }, [context, handleScroll]);
+    }, [handleScroll]);
 
     return (
         <div

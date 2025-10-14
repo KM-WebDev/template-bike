@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "../styles/globals.scss";
 import Navigation from "@/components/Navigation/Navigation";
 import Main from "@/components/Main";
-import Logo from "@/components/Logo";
 import LenisScroll from "@/components/LenisScroll";
 import GlobalControls from "@/components/GlobalControls";
 

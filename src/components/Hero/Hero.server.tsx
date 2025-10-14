@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import styles from "./Hero.module.scss";
 import * as motion from "motion/react-client";
-import MotionScrollElement from "../motion/MotionScrollElement";
 import HeroButtons from "./HeroButtons";
 import Heading from "../Heading";
 import { MotionScroll } from "../motion/MotionScroll";
