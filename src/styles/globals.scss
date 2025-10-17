@@ -1,6 +1,6 @@
-@import "tailwindcss";
-@import "fonts";
-@import "colors";
+@use "tailwindcss";
+@use "fonts";
+@use "colors";
 
 @theme {
     --breakpoint-xs: 25rem;
@@ -31,8 +31,7 @@
         touch-action: pan-y;
         overflow-x: hidden;
         font-size: 16px;
-        color: $text;
-        background: $bg;
+        color: colors.$text;
         background: #f5f5f5;
         overflow-x: hidden;
         font-family: "Open Sans", Arial, Helvetica, sans-serif;
