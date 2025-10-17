@@ -1,17 +1,8 @@
-import styles from "./Logo.module.scss";
-
 export default function Logo() {
     return (
-        <div className={styles.logo}>
-            <p className={styles.first}>
-                <span>Bike</span>
-                <span>Hub</span>
-            </p>
-
-            <p className={styles.second}>
-                <span>Bike</span>
-                <span>Hub</span>
-            </p>
+        <div className="flex font-['Racing_Sans_One'] text-4xl">
+            <p className="text-red-500">BIKE</p>
+            <p className="text-white">HUB</p>
         </div>
     );
 }
