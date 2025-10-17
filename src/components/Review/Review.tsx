@@ -14,18 +14,18 @@ import EmblaCarousel from "@/thirdparty/embla/EmblaCarousel";
 
 export default function Review() {
     return (
-        <Section>
+        <Section className="bg-neutral-800 md:!p-[4rem]">
             <Section.Content>
-                <EmblaCarousel
-                    slides={Array(8)
-                        .fill(0)
-                        .map((_, i) => {
-                            return <Element key={i} />
-                        })}
-                    options={
-                        {loop: true}
-                    }
-                />
+                <div className="relative">
+                    <EmblaCarousel
+                        slides={Array(8)
+                            .fill(0)
+                            .map((_, i) => {
+                                return <Element key={i} />;
+                            })}
+                        options={{ loop: true }}
+                    />
+                </div>
             </Section.Content>
         </Section>
     );
@@ -33,7 +33,7 @@ export default function Review() {
 
 function Element() {
     return (
-        <div className="flex aspect-square flex-col gap-4 rounded-2xl bg-white p-8">
+        <div className="flex h-fit w-full flex-col gap-4 rounded-2xl bg-[white] p-8">
             <div className="text-5xl text-[#ececec]">
                 <FaQuoteRight />
             </div>

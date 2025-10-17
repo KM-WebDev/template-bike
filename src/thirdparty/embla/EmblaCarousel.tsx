@@ -1,6 +1,6 @@
 "use client";
-import React, { RefObject, useRef } from "react";
-import { EmblaOptionsType } from "embla-carousel";
+import React, { createContext, RefObject, useRef } from "react";
+import { EmblaCarouselType, EmblaOptionsType } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useAutoplay } from "./EmblaCarouselAutoplay";
@@ -21,10 +21,16 @@ type PropType = {
     options?: EmblaOptionsType;
 };
 
+interface CarouselContext {
+    emblaApi: EmblaCarouselType | undefined;
+}
+
+const CarouselContext = createContext<CarouselContext>({ emblaApi: undefined });
+
 const EmblaCarousel: React.FC<PropType> = (props) => {
     const { slides, options } = props;
-    const progressNode = useRef<HTMLDivElement >(null);
-    
+    const progressNode = useRef<HTMLDivElement>(null);
+
     const [emblaRef, emblaApi] = useEmblaCarousel(options, [
         Autoplay({ playOnInit: false, delay: 3000 }),
     ]);
@@ -50,9 +56,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 <div className="embla__container">
                     {slides.map((Element, index) => (
                         <div className="embla__slide" key={index}>
-                            <div className="embla__slide__number">
-                                {Element}
-                            </div>
+                            {Element}
                         </div>
                     ))}
                 </div>
@@ -71,11 +75,15 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 </div>
 
                 <div
-                    className={`embla__progress`.concat(
+                    className={cn(
+                        `embla__progress`,
                         showAutoplayProgress ? "" : "embla__progress--hidden"
                     )}
                 >
-                    <div className={cn("embla__progress__bar", "!bg-red-500")} ref={progressNode} />
+                    <div
+                        className={cn("embla__progress__bar", "!bg-red-500")}
+                        ref={progressNode}
+                    />
                 </div>
 
                 <button
@@ -91,3 +99,5 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 };
 
 export default EmblaCarousel;
+
+// export function PrevButton({}: PrevButtonProps) {}

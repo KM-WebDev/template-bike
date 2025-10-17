@@ -15,7 +15,7 @@ export default function Banner({ children, className }: BannerProps) {
     return (
         <div
             className={cn(
-                "absolute right-0 bottom-0 left-0 -z-10 bg-[#ECECEC]",
+                "absolute right-0 bottom-0 left-0 -z-10 overflow-hidden bg-[#ECECEC]",
                 className
             )}
         >

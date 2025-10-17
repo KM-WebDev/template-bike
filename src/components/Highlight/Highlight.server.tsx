@@ -12,15 +12,15 @@ import Section from "../Section";
 import Element from "./HighlightElement";
 import HighlightBanner from "./HighlightBanner";
 import HighlightIcons from "./HighlightIcons";
-
+// "relative pb-[7rem] max-sm:mb-[5rem] md:!pb-[12rem] lg:!pb-[18rem]"
 export default function HighlightServer() {
     return (
-        <Section className="relative pb-[7rem] md:!pb-[12rem] lg:!pb-[18rem]">
+        <Section>
             <Section.Content className="gap-20">
                 <TopSection />
                 <Highlights />
             </Section.Content>
-            <HighlightBanner />
+            {/* <HighlightBanner /> */}
         </Section>
     );
 }

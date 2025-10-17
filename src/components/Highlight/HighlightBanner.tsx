@@ -4,14 +4,14 @@ import { MotionScroll, MotionScrollContainer } from "../motion/MotionScroll";
 
 export default function HighlightBanner() {
     return (
-        <Banner>
-            <MotionScrollContainer>
+        <Banner className="h-[25rem] bg-[#333]">
+            {/* <MotionScrollContainer>
                 <MotionScroll
                     options={{ offset: ["start end", "end start"] }}
                     transform={{
                         property: "translateX",
                         inputRange: [0, 1],
-                        outputRange: ["-50%", "50%"],
+                        outputRange: ["-25%", "25%"],
                     }}
                 >
                     <div className="flex justify-center gap-[2rem] md:gap-[10rem]">
@@ -32,7 +32,7 @@ export default function HighlightBanner() {
                             })}
                     </div>
                 </MotionScroll>
-            </MotionScrollContainer>
+            </MotionScrollContainer> */}
         </Banner>
     );
 }

@@ -6,11 +6,21 @@ import { FaClock, FaPhoneAlt } from "react-icons/fa";
 import Button from "./Button";
 import BusinessStat from "./BusinessStat";
 import Badge from "./Budge";
+import Heading from "./Heading";
 
 export default function About() {
     return (
-        <Section>
-            <Section.Content className="relative">
+        <Section className="">
+            <Section.Content
+                className="relative flex flex-col gap-10"
+                gapped={false}
+            >
+                <Heading
+                    semantic="h2"
+                    className="text-center text-3xl font-bold"
+                >
+                    Lorem ipsum dolor sit amet consectetur.
+                </Heading>
                 <div className="flex flex-col gap-8 md:flex-row md:gap-6">
                     <AboutImage />
                     <Content />
