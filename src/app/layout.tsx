@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import "../styles/globals.scss";
 import Navigation from "@/components/Navigation/Navigation";
 import Main from "@/components/Main";
-import LenisScroll from "@/components/LenisScroll";
 import GlobalControls from "@/components/GlobalControls";
 import Footer from "@/components/Footer";
-import { NavigationRoutes } from "@/components/Navigation/Navigation.server";
+import { NavigationRoutes } from "@/components/Navigation/Navigation.d";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -25,8 +24,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body>
-                <LenisScroll />
+            <body className="">
                 <GlobalControls>
                     <Navigation routes={routes} />
                     <Main>{children}</Main>

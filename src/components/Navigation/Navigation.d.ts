@@ -1,11 +1,12 @@
 export interface DeviceNavigationProps {
-    children: React.ReactNode;
     className?: string;
+    routes: NavigationRoutes;
 }
 
 export interface NavigationRoutesEntry {
     name: string;
     link: string;
+    exact?: boolean;
 }
 
 export interface NavigationClientProps {
@@ -19,9 +20,7 @@ export interface NavigationProps {
 }
 
 export interface NavLinkProps {
-    href: string;
-    name: string;
-    exact?: boolean;
+    route: NavigationRoutesEntry;
     className?: string;
     activeClassName?: string;
 }

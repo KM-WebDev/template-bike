@@ -20,23 +20,21 @@ const checkActive = (target: string, current: string, exact: boolean) => {
 };
 
 export default function NavLink({
-    href,
-    name,
-    exact = false,
+    route,
     className,
     activeClassName,
 }: NavLinkProps) {
     const pathname = usePathname();
-    const target = normalize(href);
+    const target = normalize(route.link);
     const current = normalize(pathname);
-    const isActive = checkActive(target, current, exact);
+    const isActive = checkActive(target, current, route.exact || false);
 
     return (
         <Link
-            href={href}
+            href={route.link}
             className={cn(className, isActive && activeClassName)}
         >
-            {name}
+            {route.name}
         </Link>
     );
 }

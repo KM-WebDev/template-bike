@@ -2,6 +2,7 @@
 
 import { HTMLDivRef } from "@/lib/types/global";
 import { createContext, useRef } from "react";
+import LenisScroll from "./LenisScroll";
 
 interface Props {
     children: React.ReactNode;
@@ -20,8 +21,10 @@ export const GlobalControlsContext = createContext<Context>({
 export default function GlobalControls({ children }: Props) {
     const heroRef = useRef(null);
     const navRef = useRef(null);
+
     return (
         <GlobalControlsContext.Provider value={{ heroRef, navRef }}>
+            <LenisScroll />
             {children}
         </GlobalControlsContext.Provider>
     );
