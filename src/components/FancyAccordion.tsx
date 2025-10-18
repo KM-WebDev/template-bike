@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion, AccordionItem } from "@heroui/accordion";
-import { AccordionItemSlots, SlotsToClasses } from "@heroui/theme";
+import { AccordionItemSlots, SlotsToClasses, cn } from "@heroui/theme";
 
 export interface AccordionEntry {
     title: string;
@@ -15,13 +15,24 @@ export type AccordionItemClassName = SlotsToClasses<AccordionItemSlots>;
 
 export interface AccordionProps {
     entries: AccordionEntries;
-    className?: string,
-    itemClassName?: AccordionItemClassName
-    dark?: boolean
+    className?: string;
+    itemClassName?: AccordionItemClassName;
+    dark?: boolean;
 }
 
 // Michael: had to prefix it with "Fancy" to avoid conflicts with HeroUI import above
-export default function FancyAccordion({ entries, className, itemClassName, dark }: AccordionProps) {
+export default function FancyAccordion({
+    entries,
+    className,
+    itemClassName,
+    dark,
+}: AccordionProps) {
+    if (itemClassName) {
+        itemClassName.trigger = cn("cursor-pointer", itemClassName.trigger);
+        itemClassName.heading = cn("cursor-pointer", itemClassName.heading);
+        itemClassName.titleWrapper = cn("cursor-pointer", itemClassName.titleWrapper);
+    }
+
     return (
         <div className={dark ? "dark" : "light"}>
             <Accordion
@@ -36,7 +47,6 @@ export default function FancyAccordion({ entries, className, itemClassName, dark
                         aria-label={`Accordion ${i}`}
                         title={entry.title}
                         classNames={itemClassName}
-                       
                     >
                         {entry.content}
                         {entry.note && (

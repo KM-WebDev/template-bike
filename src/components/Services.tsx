@@ -1,4 +1,4 @@
-import FancyAccordion, { AccordionEntries } from "./FancyAccordion";
+import FancyAccordion, { AccordionEntries } from "./FancyAccordionv2";
 import Section from "./Section";
 
 // Michael: I know this is bad, FIXME later
@@ -13,34 +13,65 @@ import Button from "./Button";
 const entries: AccordionEntries = [
     {
         title: "Czyszczenie i konserwacja",
-        content:
-            "Dokładne mycie ramy, napędu i kół, czyszczenie łańcucha oraz smarowanie wszystkich ruchomych elementów.",
+        Content: GenerateContnet([
+            { name: "Dokładne mycie ramy", price: "40 zł" },
+            { name: "Mycie i odtłuszczanie napędu", price: "50 zł" },
+            { name: "Czyszczenie i smarowanie łańcucha", price: "30 zł" },
+            { name: "Pełna konserwacja roweru", price: "80 zł" },
+        ]),
         note: "Czas realizacji: ok. 1 godzina",
     },
     {
         title: "Przegląd okresowy",
-        content:
-            "Kompleksowa kontrola stanu technicznego roweru: napęd, hamulce, koła, ciśnienie, łożyska i elementy bezpieczeństwa.",
+        Content: GenerateContnet([
+            { name: "Kontrola i regulacja przerzutek", price: "40 zł" },
+            { name: "Regulacja hamulców", price: "35 zł" },
+            { name: "Kontrola łożysk, sterów i suportu", price: "40 zł" },
+            { name: "Pełny przegląd roweru", price: "150 zł" },
+        ]),
         note: "Czas realizacji: 2-3 godziny ",
     },
     {
         title: "Naprawy i wymiany",
-        content:
-            "Wymiana zużytych części, naprawy mechaniczne i elektryczne (także e-bike), regulacja przerzutek, hamulców i amortyzacji.",
+        Content: GenerateContnet([
+            { name: "Wymiana dętki lub opony", price: "40 zł" },
+            { name: "Wymiana łańcucha", price: "30 zł" },
+            { name: "Wymiana klocków hamulcowych", price: "25 zł" },
+            { name: "Naprawa układu hamulcowego hydraulicznego", price: "70 zł" },
+            { name: "Diagnoza i naprawa e-bike", price: "od 120  zł" },
+        ]),
         note: "Czas realizacji: zależny od zakresu usługi ",
     },
     {
         title: "Serwis kół",
-        content:
-            "Centrowanie kół, kontrola szprych, piast i opon. Montaż nowych opon, dętek i taśm.",
+        Content: GenerateContnet([
+            { name: "Centrowanie koła", price: "60 zł" },
+            { name: "Wymiana szprychy", price: "20 zł / szt." },
+            {
+                name: "Serwis piasty (czyszczenie, smarowanie, regulacja)",
+                price: "50 zł",
+            },
+            { name: "Montaż opon lub dętek", price: "30 zł" },
+        ]),
         note: "Czas realizacji: 1-2 godziny ",
     },
     {
         title: "Dodatkowe usługi",
-        content:
-            "Montaż akcesoriów, transport rowerów, diagnoza e-bike, przygotowanie do sezonu lub zawodów.",
+        Content: GenerateContnet([
+            { name: "Montaż błotników, bagażników, lampek", price: "od 30 zł" },
+            { name: "Przygotowanie roweru do sezonu", price: "100 zł" },
+            { name: "Diagnoza ogól", price: "40 zł" },
+            { name: "Transport roweru do/ze sklep", price: "50 zł" },
+        ]),
     },
 ];
+
+interface ServiceEntry {
+    name: string;
+    price: string;
+}
+
+type ServiceEntries = ServiceEntry[];
 
 export default function Services() {
     return (
@@ -137,5 +168,25 @@ function CTA() {
             </h2>
             <Button>Zarezerwuj termin</Button>
         </div>
+    );
+}
+
+function GenerateContnet(entries: ServiceEntries) {
+    return (
+        <ul className="list-disc px-4">
+            {entries.map((entry, i) => {
+                return (
+                    <li key={i}>
+                        <div className="flex gap-2">
+                            <div>{entry.name}</div>
+                            <span>-</span>
+                            <div className="font-bold text-red-500">
+                                {entry.price}
+                            </div>
+                        </div>
+                    </li>
+                );
+            })}
+        </ul>
     );
 }
