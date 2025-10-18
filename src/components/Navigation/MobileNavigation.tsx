@@ -19,6 +19,8 @@ export default function MobileNavigation({
         setIsOpen((x) => !x);
     };
 
+    const closeNavigation = () => setIsOpen(false);
+
     return (
         <div className={className}>
             <div
@@ -27,7 +29,12 @@ export default function MobileNavigation({
                     isOpen && ""
                 )}
             >
-                {isOpen && <Content routes={routes} />}
+                {isOpen && (
+                    <Content
+                        routes={routes}
+                        closeNavigation={closeNavigation}
+                    />
+                )}
                 <Logo />
                 <div className="z-[1000] text-[white]">
                     <Hamburger toggled={isOpen} toggle={handleNavButtonClick} />
@@ -37,20 +44,32 @@ export default function MobileNavigation({
     );
 }
 
-function Content({ routes }: { routes: NavigationRoutes }) {
+function Content({
+    routes,
+    closeNavigation,
+}: {
+    routes: NavigationRoutes;
+    closeNavigation: () => void;
+}) {
     return createPortal(
         <div
             className={cn(
-                "fixed top-0 right-0 bottom-0 left-0 z-[1000] flex h-[100lvh] w-[100lvw] items-center justify-center bg-[black]/60 backdrop-blur-lg",
+                "fixed top-0 right-0 bottom-0 left-0 z-[1000] flex h-[100lvh] w-[100lvw] items-center justify-center bg-[black]/80 backdrop-blur-xl",
                 "md:hidden"
             )}
         >
-            <ul className={cn("flex list-none flex-col gap-6 text-lg")}>
+            <ul
+                className={cn(
+                    "flex list-none flex-col items-center gap-6 text-xl"
+                )}
+            >
                 {routes.map((route) => (
                     <NavLink
                         key={route.name}
                         route={route}
-                        className="text-white"
+                        className="px-3 py-1.5 text-white"
+                        activeClassName="bg-rose-800/80  rounded-full"
+                        onClick={closeNavigation}
                     />
                 ))}
             </ul>

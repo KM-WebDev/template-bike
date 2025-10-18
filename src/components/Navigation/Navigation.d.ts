@@ -23,4 +23,5 @@ export interface NavLinkProps {
     route: NavigationRoutesEntry;
     className?: string;
     activeClassName?: string;
+    onClick?: () => void;
 }

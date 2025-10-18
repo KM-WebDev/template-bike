@@ -23,6 +23,7 @@ export default function NavLink({
     route,
     className,
     activeClassName,
+    onClick,
 }: NavLinkProps) {
     const pathname = usePathname();
     const target = normalize(route.link);
@@ -33,6 +34,7 @@ export default function NavLink({
         <Link
             href={route.link}
             className={cn(className, isActive && activeClassName)}
+            onClick={onClick}
         >
             {route.name}
         </Link>

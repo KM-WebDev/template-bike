@@ -12,15 +12,3 @@ export default function NavigationServer({ routes }: NavigationProps) {
     );
 }
 
-// function NavLogo() {
-//     return (
-//         <div
-//             className={cn(
-//                 "absolute top-[50%] left-5 -translate-y-[50%] rounded-md bg-black/40 p-1 backdrop-blur",
-//                 "group-data-[scrolled=true]/nav:bg-black group-data-[scrolled=true]/nav:shadow-xl"
-//             )}
-//         >
-//             <Logo />
-//         </div>
-//     );
-// }
