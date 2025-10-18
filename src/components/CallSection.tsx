@@ -2,8 +2,10 @@ import Section from "./Section";
 
 export default function CallSection() {
     return (
-        <Section>
-            <Section.Content>CAll me</Section.Content>
+        <Section className="bg-[#110011]">
+            <Section.Content>
+                <div className="h-[10rem]"></div>
+            </Section.Content>
         </Section>
     );
 }

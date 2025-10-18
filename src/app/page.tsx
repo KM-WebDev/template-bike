@@ -1,7 +1,8 @@
 import About from "@/components/About";
+import CallSection from "@/components/CallSection";
 import Hero from "@/components/Hero/Hero";
 import Highlight from "@/components/Highlight/Highlight";
-import Review from "@/components/Review/Review";
+import Review from "@/components/Review";
 import Section from "@/components/Section";
 // import Logos from "@/components/Logos";
 
@@ -10,11 +11,7 @@ export default function Page() {
         <>
             <Hero />
             <Highlight />
-            <Section className="bg-[#333]">
-                <Section.Content>
-                    <div className="h-[10rem]"></div>
-                </Section.Content>
-            </Section>
+            <CallSection />
             <About />
             <Review />
             {/* <Logos /> */}

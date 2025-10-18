@@ -11,7 +11,6 @@ import { useAutoplay, UseAutoplayType } from "./EmblaCarouselAutoplay";
 import { useAutoplayProgress } from "./EmblaCarouselAutoplayProgress";
 import { usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 import { cn } from "@/lib/utils/cn";
-import "./css/Embla.css";
 
 interface CarouselContext {
     emblaApi: EmblaCarouselType | undefined;
@@ -31,15 +30,22 @@ const CarouselContext = createContext<CarouselContext>({
     autoplayApi: undefined,
 });
 
-type PropType = {
+interface CarouselProps {
     slides: React.ReactNode[];
     options?: EmblaOptionsType;
     plugins?: EmblaPluginType[];
     children: React.ReactNode;
     autoplay?: AutoplayOptionsType;
-};
+    stretchItems?: boolean;
+}
 
-export function Carousel({ slides, options, children, autoplay }: PropType) {
+export function Carousel({
+    slides,
+    options,
+    children,
+    autoplay,
+    stretchItems = true,
+}: CarouselProps) {
     const plugins: EmblaPluginType[] = [];
     if (autoplay) plugins.push(Autoplay(autoplay));
     const [emblaRef, emblaApi] = useEmblaCarousel(options, plugins);
@@ -53,6 +59,7 @@ export function Carousel({ slides, options, children, autoplay }: PropType) {
         onNextButtonClick,
     } = usePrevNextButtons(emblaApi);
 
+    // Snowy: Needs to be memoize to prevent unecessary rerenders. (React thing)
     const contextValue = React.useMemo(() => {
         return {
             emblaApi,
@@ -77,7 +84,7 @@ export function Carousel({ slides, options, children, autoplay }: PropType) {
                 className={cn(
                     "w-full",
                     "[--slide-spacing:2rem]",
-                    "[--slide-size:33%]"
+                    "[--slide-size:80%] lg:[--slide-size:40%] xl:[--slide-size:30%]"
                 )}
             >
                 <div className="overflow-hidden" ref={emblaRef}>
@@ -85,7 +92,8 @@ export function Carousel({ slides, options, children, autoplay }: PropType) {
                         className={cn(
                             "flex",
                             "[touch-action:pan-y_pinch-zoom]",
-                            "ml-[calc(var(--slide-spacing)*-1)]"
+                            "ml-[calc(var(--slide-spacing)*-1)]",
+                            stretchItems && "items-stretch"
                         )}
                     >
                         {slides.map((Element, index) => (
@@ -103,8 +111,8 @@ export function Carousel({ slides, options, children, autoplay }: PropType) {
                         ))}
                     </div>
                 </div>
-                {children}
             </div>
+            {children}
         </CarouselContext.Provider>
     );
 }
@@ -120,7 +128,7 @@ export function CarouselToggleAutoplayButton({
 
     return (
         <button
-            className={cn("bg-white", className)}
+            className={cn("", className)}
             onClick={toggleAutoplay}
             type="button"
         >
@@ -169,17 +177,13 @@ function Button({
         onNextButtonClick,
         onPrevButtonClick,
     } = useContext(CarouselContext);
-
-    const handler =
-        direction === "prev" ? onPrevButtonClick : onNextButtonClick;
-    const disabled = direction === "prev" ? prevBtnDisabled : nextBtnDisabled;
+    const isPrev = direction === "prev";
+    const handler = isPrev ? onPrevButtonClick : onNextButtonClick;
+    const disabled = isPrev ? prevBtnDisabled : nextBtnDisabled;
 
     function handleClick() {
-        if (autoplayApi) {
-            autoplayApi.onAutoplayButtonClick(handler);
-        } else {
-            handler();
-        }
+        if (autoplayApi) autoplayApi.onAutoplayButtonClick(handler);
+        else handler();
     }
 
     return (
@@ -191,7 +195,7 @@ function Button({
 
 interface DirButton {
     className?: string;
-    children: string;
+    children: string | React.ReactNode;
 }
 export function CarouselPrevButton({ className, children }: DirButton) {
     return (
