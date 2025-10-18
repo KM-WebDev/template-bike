@@ -58,7 +58,7 @@ function NavigationSection({ routes }: NavigationProps) {
         <div
             className={cn(
                 "flex gap-5",
-                "lg:flex-col",
+                "lg:flex-row",
                 "max-lg:flex-row",
                 "max-xs:flex-col"
             )}
