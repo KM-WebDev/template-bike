@@ -7,9 +7,12 @@ import {
 } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay, { AutoplayOptionsType } from "embla-carousel-autoplay";
-import { useAutoplay, UseAutoplayType } from "./EmblaCarouselAutoplay";
-import { useAutoplayProgress } from "./EmblaCarouselAutoplayProgress";
-import { usePrevNextButtons } from "./EmblaCarouselArrowButtons";
+import {
+    useAutoplay,
+    UseAutoplayType,
+} from "../thirdparty/embla/EmblaCarouselAutoplay";
+import { useAutoplayProgress } from "../thirdparty/embla/EmblaCarouselAutoplayProgress";
+import { usePrevNextButtons } from "../thirdparty/embla/EmblaCarouselArrowButtons";
 import { cn } from "@/lib/utils/cn";
 
 interface CarouselContext {
@@ -90,6 +93,7 @@ export function Carousel({
                 <div className="overflow-hidden" ref={emblaRef}>
                     <div
                         className={cn(
+                            "cursor-grab",
                             "flex",
                             "[touch-action:pan-y_pinch-zoom]",
                             "ml-[calc(var(--slide-spacing)*-1)]",
@@ -187,7 +191,11 @@ function Button({
     }
 
     return (
-        <button onClick={handleClick} disabled={disabled} className={className}>
+        <button
+            onClick={handleClick}
+            disabled={disabled}
+            className={cn("cursor-pointer", className)}
+        >
             {children}
         </button>
     );

@@ -4,7 +4,7 @@ import {
     Carousel,
     CarouselNextButton,
     CarouselPrevButton,
-} from "@/thirdparty/embla/Carousel";
+} from "@/components/Carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function Review() {
@@ -26,7 +26,7 @@ export default function Review() {
                             stopOnInteraction: false,
                         }}
                     >
-                        <div className="flex w-full justify-end px-5 text-xl text-[black]">
+                        <div className="flex w-full justify-end gap-3 px-5 text-xl text-[black]">
                             <CarouselPrevButton>
                                 <IoIosArrowBack />
                             </CarouselPrevButton>
@@ -43,7 +43,7 @@ export default function Review() {
 
 function Element({ index }: { index: number }) {
     return (
-        <div className="flex h-full w-full flex-col justify-between gap-4 rounded-2xl bg-[white] p-8">
+        <div className="flex h-full w-full flex-col justify-between gap-4 rounded-2xl bg-[white] p-8 select-none">
             <div className="text-5xl text-[#ececec]">
                 <FaQuoteRight />
             </div>

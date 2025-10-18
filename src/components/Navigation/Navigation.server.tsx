@@ -1,19 +1,13 @@
 import NavLink from "./NavLink";
 import { cn } from "@/lib/utils/cn";
 import Logo from "../Logo";
-
-export interface NavigationRoutesEntry {
-    name: string;
-    link: string;
-}
-
-export type NavigationRoutes = NavigationRoutesEntry[];
-
-export interface NavigationProps {
-    routes: NavigationRoutes;
-}
+import MobileNavigation from "./MobileNavigation";
+import { NavigationProps, NavigationRoutes } from "./Navigation.d";
+import { DesktopNavigation } from "./DesktopNavigation";
 
 export default function NavigationServer({ routes }: NavigationProps) {
+    const navList = generateNavList(routes);
+
     return (
         <nav
             className={cn(
@@ -21,15 +15,12 @@ export default function NavigationServer({ routes }: NavigationProps) {
             )}
         >
             <NavLogo />
-            <div
-                className={cn(
-                    "flex h-full flex-col justify-center gap-0.5 overflow-hidden rounded-full bg-black/40 px-4 py-4 shadow-lg backdrop-blur"
-                )}
-            >
-                <ul className={cn("flex list-none gap-2")}>
-                    {generateNavList(routes)}
-                </ul>
-            </div>
+            <DesktopNavigation className="hidden md:block">
+                <ul className={cn("flex list-none gap-2")}>{navList}</ul>
+            </DesktopNavigation>
+            <MobileNavigation className="block md:hidden">
+                <ul className={cn("flex list-none gap-2")}>{navList}</ul>
+            </MobileNavigation>
         </nav>
     );
 }
@@ -50,7 +41,12 @@ function NavLogo() {
 function generateNavList(routes: NavigationRoutes) {
     return routes.map((entry) => (
         <li key={entry.name}>
-            <NavLink href={entry.link} name={entry.name} />
+            <NavLink
+                href={entry.link}
+                name={entry.name}
+                className={cn("z-10 rounded-full px-4 py-2 text-white")}
+                activeClassName="bg-rose-800"
+            />
         </li>
     ));
 }

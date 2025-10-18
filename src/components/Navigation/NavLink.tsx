@@ -3,22 +3,38 @@
 import { cn } from "@/lib/utils/cn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NavLinkProps } from "./Navigation.d";
 
-interface NavLinkProps {
-    href: string;
-    name: string;
-}
+const normalize = (path: string) => {
+    return path === "/"
+        ? "/"
+        : path.startsWith("/")
+          ? path.replace("/", "")
+          : path;
+};
 
-export default function NavLink({ href, name }: NavLinkProps) {
+const checkActive = (target: string, current: string, exact: boolean) => {
+    return exact
+        ? current === target
+        : current === target || current.startsWith(`${target}/`);
+};
+
+export default function NavLink({
+    href,
+    name,
+    exact = false,
+    className,
+    activeClassName,
+}: NavLinkProps) {
     const pathname = usePathname();
-    const isActive = pathname === href || pathname.slice(1).startsWith(href);
+    const target = normalize(href);
+    const current = normalize(pathname);
+    const isActive = checkActive(target, current, exact);
+
     return (
         <Link
             href={href}
-            className={cn(
-                "z-10 rounded-full px-4 py-2 text-white",
-                isActive && "bg-red-700"
-            )}
+            className={cn(className, isActive && activeClassName)}
         >
             {name}
         </Link>

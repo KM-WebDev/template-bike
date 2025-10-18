@@ -6,7 +6,7 @@ import {
     UseScrollOptions,
     useTransform,
 } from "motion/react";
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useEffect, useEffectEvent, useState } from "react";
 
 interface Transform {
     property: string;
