@@ -99,5 +99,3 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 };
 
 export default EmblaCarousel;
-
-// export function PrevButton({}: PrevButtonProps) {}

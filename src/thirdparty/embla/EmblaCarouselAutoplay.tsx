@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { EmblaCarouselType } from "embla-carousel";
 
-type UseAutoplayType = {
+export type UseAutoplayType = {
     autoplayIsPlaying: boolean;
     toggleAutoplay: () => void;
     onAutoplayButtonClick: (callback: () => void) => void;
