@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useRef } from "react";
+import React, { createContext, useCallback, useContext, useRef } from "react";
 import {
     EmblaCarouselType,
     EmblaOptionsType,
@@ -14,6 +14,8 @@ import {
 import { useAutoplayProgress } from "../thirdparty/embla/EmblaCarouselAutoplayProgress";
 import { usePrevNextButtons } from "../thirdparty/embla/EmblaCarouselArrowButtons";
 import { cn } from "@/lib/utils/cn";
+import AutoScroll, { AutoScrollOptionsType } from "embla-carousel-auto-scroll";
+import { useAutoScroll } from "@/thirdparty/embla/EmblaCarouselAutoScroll";
 
 interface CarouselContext {
     emblaApi: EmblaCarouselType | undefined;
@@ -37,9 +39,12 @@ interface CarouselProps {
     slides: React.ReactNode[];
     options?: EmblaOptionsType;
     plugins?: EmblaPluginType[];
-    children: React.ReactNode;
+    children?: React.ReactNode;
     autoplay?: AutoplayOptionsType;
+    autoScroll?: AutoScrollOptionsType;
     stretchItems?: boolean;
+    className?: string;
+    itemClassName?: string;
 }
 
 export function Carousel({
@@ -47,20 +52,56 @@ export function Carousel({
     options,
     children,
     autoplay,
+    autoScroll,
+    className,
+    itemClassName,
     stretchItems = true,
 }: CarouselProps) {
     const plugins: EmblaPluginType[] = [];
     if (autoplay) plugins.push(Autoplay(autoplay));
+    else if (autoScroll) plugins.push(AutoScroll(autoScroll));
     const [emblaRef, emblaApi] = useEmblaCarousel(options, plugins);
     const autoplayUse = useAutoplay(emblaApi);
+    const autoScrollApi = useAutoScroll(emblaApi);
     const autoplayApi = autoplay ? autoplayUse : undefined;
 
     const {
         prevBtnDisabled,
         nextBtnDisabled,
-        onPrevButtonClick,
-        onNextButtonClick,
+        onPrevButtonClick: prevHandler,
+        onNextButtonClick: nextHandler,
     } = usePrevNextButtons(emblaApi);
+
+    const onButtonClick = useCallback(
+        (dir: "prev" | "next") => {
+            const handler = dir === "prev" ? prevHandler : nextHandler;
+
+            if (autoplay) {
+                autoplayApi?.onAutoplayButtonClick(handler);
+            } else if (autoScroll) {
+                autoScrollApi.onButtonAutoScrollClick(handler);
+            } else {
+                handler();
+            }
+        },
+        [
+            autoScrollApi,
+            autoplayApi,
+            prevHandler,
+            nextHandler,
+            autoplay,
+            autoScroll,
+        ]
+    );
+
+    const onPrevButtonClick = useCallback(
+        () => onButtonClick("prev"),
+        [onButtonClick]
+    );
+    const onNextButtonClick = useCallback(
+        () => onButtonClick("next"),
+        [onButtonClick]
+    );
 
     // Snowy: Needs to be memoize to prevent unecessary rerenders. (React thing)
     const contextValue = React.useMemo(() => {
@@ -87,7 +128,8 @@ export function Carousel({
                 className={cn(
                     "w-full",
                     "[--slide-spacing:2rem]",
-                    "[--slide-size:80%] lg:[--slide-size:40%] xl:[--slide-size:30%]"
+                    "[--slide-size:80%] lg:[--slide-size:40%] xl:[--slide-size:30%]",
+                    className
                 )}
             >
                 <div className="overflow-hidden" ref={emblaRef}>
@@ -106,7 +148,8 @@ export function Carousel({
                                     "min-w-0",
                                     "transform-[translate3d(0,0,0)]",
                                     "flex-[0_0_var(--slide-size)]",
-                                    "pl-[var(--slide-spacing)]"
+                                    "pl-[var(--slide-spacing)]",
+                                    itemClassName
                                 )}
                                 key={index}
                             >
@@ -175,7 +218,6 @@ function Button({
     children: React.ReactNode | string;
 }) {
     const {
-        autoplayApi,
         prevBtnDisabled,
         nextBtnDisabled,
         onNextButtonClick,
@@ -186,8 +228,7 @@ function Button({
     const disabled = isPrev ? prevBtnDisabled : nextBtnDisabled;
 
     function handleClick() {
-        if (autoplayApi) autoplayApi.onAutoplayButtonClick(handler);
-        else handler();
+        handler();
     }
 
     return (

@@ -5,17 +5,19 @@ interface SectionProps {
     children: React.ReactNode;
     className?: string;
     padded?: CssDirection[];
-    paddingSize?: "sm" | "lg";
+    paddingSize?: "sm" | "md" | "lg";
 }
 
 interface ContentProps {
     children: React.ReactNode;
     className?: string;
     gapped?: boolean;
+    gapSize?: "sm" | "md" | "lg";
 }
 
 const sectionPaddingTop = {
-    sm: cn(
+    sm: cn("max-xs:pt-2", "pt-4", "md:pt-5", "lg:pt-6", "xl:pt-8", "2xl:pt-10"),
+    md: cn(
         "max-xs:pt-6",
         "pt-8",
         "md:pt-10",
@@ -34,7 +36,8 @@ const sectionPaddingTop = {
 };
 
 const sectionPaddingBottom = {
-    sm: cn(
+    sm: cn("max-xs:pb-2", "pb-4", "md:pb-5", "lg:pb-6", "xl:pb-8", "2xl:pb-10"),
+    md: cn(
         "max-xs:pb-6",
         "pb-8",
         "md:pb-10",
@@ -72,16 +75,39 @@ export default function Section({
     );
 }
 
-const contentGap = cn(
-    "max-xs:gap-12",
-    "gap-16",
-    "md:gap-20",
-    "lg:gap-24",
-    "xl:gap-30",
-    "2xl:gap-40"
-);
+const contentGap = {
+    sm: cn(
+        "max-xs:gap-2",
+        "gap-4",
+        "md:gap-5",
+        "lg:gap-6",
+        "xl:gap-8",
+        "2xl:gap-10"
+    ),
+    md: cn(
+        "max-xs:gap-6",
+        "gap-8",
+        "md:gap-10",
+        "lg:gap-12",
+        "xl:gap-15",
+        "2xl:gap-20"
+    ),
+    lg: cn(
+        "max-xs:gap-12",
+        "gap-16",
+        "md:gap-20",
+        "lg:gap-24",
+        "xl:gap-30",
+        "2xl:gap-40"
+    ),
+};
 
-function Content({ children, className, gapped = true }: ContentProps) {
+function Content({
+    children,
+    className,
+    gapped = true,
+    gapSize = "md",
+}: ContentProps) {
     return (
         <div
             className={cn(
@@ -89,7 +115,7 @@ function Content({ children, className, gapped = true }: ContentProps) {
                 "flex w-full max-w-[1200px] flex-col px-4",
                 "lg:px-5",
                 "xl:px-0",
-                gapped && contentGap,
+                gapped && contentGap[gapSize],
                 className
             )}
         >

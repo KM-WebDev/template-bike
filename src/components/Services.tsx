@@ -78,9 +78,9 @@ type ServiceEntries = ServiceEntry[];
 
 export default function Services() {
     return (
-        <div className="flex flex-col gap-10">
-            <Section>
-                <Section.Content>
+        <>
+            <Section paddingSize="lg">
+                <Section.Content gapSize="md">
                     <div className="flex flex-col items-center gap-10">
                         <p className="text-center text-4xl font-bold">
                             Oto nasza oferta:
@@ -91,6 +91,8 @@ export default function Services() {
                             bezpieczeństwo i komfort jazdy z pomocą naszego
                             doświadczonego zespołu.
                         </p>
+                    </div>
+                    <div className="flex flex-col items-center gap-10">
                         <div className="w-full">
                             <FancyAccordion
                                 entries={entries}
@@ -106,16 +108,23 @@ export default function Services() {
                             />
                         </div>
                     </div>
+                    <Highlights />
                 </Section.Content>
             </Section>
-            <Banner></Banner>
-            <Section paddingSize="sm">
+            {/* <Section paddingSize="md">
+                <Section.Content></Section.Content>
+            </Section> */}
+            <Section paddingSize="md" className="bg-black">
                 <Section.Content>
-                    <Highlights></Highlights>
+                    <Banner />
                 </Section.Content>
             </Section>
-            <Map></Map>
-        </div>
+            <Section paddingSize="md">
+                <Section.Content>
+                    <Map />
+                </Section.Content>
+            </Section>
+        </>
     );
 }
 
@@ -153,8 +162,8 @@ function Highlights() {
 
 function Banner() {
     return (
-        <div className="relative mb-24 h-80 overflow-hidden shadow-lg">
-            <div className="bg-opacity-40 absolute inset-0 flex flex-col items-center justify-center gap-6 bg-black px-6 text-center">
+        <div className="relative h-fit w-full shadow-lg">
+            <div className="inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
                 <h2 className="mb-2 text-3xl font-semibold text-white">
                     Twój rower w dobrych rękach
                 </h2>
@@ -170,7 +179,7 @@ function Banner() {
 
 function Map() {
     return (
-        <div className="flex items-center flex-row justify-center">
+        <div className="flex flex-row items-center justify-center">
             <div className="flex h-[300px] w-[500px] bg-gray-400">Mapa</div>
             <p>Znajdziesz nas tutaj</p>
         </div>

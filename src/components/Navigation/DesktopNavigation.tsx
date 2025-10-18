@@ -7,25 +7,29 @@ import {
     AnimatedListHover,
     AnimatedListItem,
 } from "../AnimatedList";
+import Link from "next/link";
 
 export function DesktopNavigation({
     routes,
     className,
 }: DeviceNavigationProps) {
     return (
-        <div className={className}>
+        <div className={cn("pointer-events-none", className)}>
             <div
                 className={cn("flex h-fit w-full items-center justify-center")}
             >
                 <div
                     className={cn(
+                        "pointer-events-auto",
                         "absolute top-[50%] left-4 -translate-y-[50%] rounded-md bg-black/40 px-2 py-1 backdrop-blur",
                         "group-data-[scrolled=true]/nav:bg-black group-data-[scrolled=true]/nav:shadow-xl"
                     )}
                 >
-                    <Logo />
+                    <Link href="/">
+                        <Logo />
+                    </Link>
                 </div>
-                <div className="mt-2 flex w-fit rounded-full bg-black/50 px-2 py-2 shadow-lg backdrop-blur">
+                <div className="pointer-events-auto mt-2 flex w-fit rounded-full bg-black/50 px-2 py-2 shadow-lg backdrop-blur">
                     <AnimatedList className={"flex gap-5 text-neutral-100"}>
                         <AnimatedListHover className="rounded-full bg-neutral-300/30" />
                         {routes.map((route) => {

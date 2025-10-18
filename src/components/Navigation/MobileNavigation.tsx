@@ -25,7 +25,7 @@ export default function MobileNavigation({
         <div className={className}>
             <div
                 className={cn(
-                    "[padding-top: env(safe-area-inset-top)] flex w-full items-center justify-between bg-black px-3 py-3 backdrop-blur",
+                    "[padding-top: env(safe-area-inset-top)] pointer-events-auto flex w-full items-center justify-between bg-black px-3 py-3 backdrop-blur",
                     isOpen && ""
                 )}
             >

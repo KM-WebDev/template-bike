@@ -3,8 +3,7 @@ import CallSection from "@/components/CallSection";
 import Hero from "@/components/Hero/Hero";
 import Highlight from "@/components/Highlight/Highlight";
 import Review from "@/components/Review";
-import Section from "@/components/Section";
-// import Logos from "@/components/Logos";
+import Logos from "@/components/Logos";
 
 export default function Page() {
     return (
@@ -14,7 +13,7 @@ export default function Page() {
             <CallSection />
             <About />
             <Review />
-            {/* <Logos /> */}
+            <Logos />
         </>
     );
 }
