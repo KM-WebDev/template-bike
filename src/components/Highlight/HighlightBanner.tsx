@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils/cn";
-import Banner from "../Banner";
+import Banner from "../ui/Banner";
 import { MotionScroll, MotionScrollContainer } from "../motion/MotionScroll";
 
 export default function HighlightBanner() {

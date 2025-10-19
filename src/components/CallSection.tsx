@@ -1,4 +1,4 @@
-import Section from "./Section";
+import Section from "./ui/Section";
 
 export default function CallSection() {
     return (

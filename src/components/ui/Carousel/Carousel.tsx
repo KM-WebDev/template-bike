@@ -7,15 +7,12 @@ import {
 } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay, { AutoplayOptionsType } from "embla-carousel-autoplay";
-import {
-    useAutoplay,
-    UseAutoplayType,
-} from "../thirdparty/embla/EmblaCarouselAutoplay";
-import { useAutoplayProgress } from "../thirdparty/embla/EmblaCarouselAutoplayProgress";
-import { usePrevNextButtons } from "../thirdparty/embla/EmblaCarouselArrowButtons";
+import { useAutoplay, UseAutoplayType } from "./EmblaCarouselAutoplay";
+import { useAutoplayProgress } from "./EmblaCarouselAutoplayProgress";
+import { usePrevNextButtons } from "./EmblaCarouselArrowButtons";
 import { cn } from "@/lib/utils/cn";
 import AutoScroll, { AutoScrollOptionsType } from "embla-carousel-auto-scroll";
-import { useAutoScroll } from "@/thirdparty/embla/EmblaCarouselAutoScroll";
+import { useAutoScroll } from "@/components/ui/Carousel/EmblaCarouselAutoScroll";
 
 interface CarouselContext {
     emblaApi: EmblaCarouselType | undefined;
@@ -158,8 +155,8 @@ export function Carousel({
                         ))}
                     </div>
                 </div>
+                {children}
             </div>
-            {children}
         </CarouselContext.Provider>
     );
 }

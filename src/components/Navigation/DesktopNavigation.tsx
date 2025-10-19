@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils/cn";
 import { DeviceNavigationProps } from "./Navigation.d";
-import Logo from "../Logo";
+import Logo from "../ui/Logo";
 import NavLink from "./NavLink";
 import {
     AnimatedList,
     AnimatedListHover,
     AnimatedListItem,
-} from "../AnimatedList";
+} from "../ui/AnimatedList";
 import Link from "next/link";
 
 export function DesktopNavigation({

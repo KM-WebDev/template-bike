@@ -9,7 +9,13 @@ interface HeadingProps {
 }
 
 const headingStyles = {
-    h1: "text-6xl font-bold",
+    h1: cn(
+        "text-2xl font-bold",
+        "xs:text-3xl",
+        "sm:text-4xl",
+        "md:text-5xl",
+        "lg:text-6xl"
+    ),
     h2: "",
     h3: "",
     h4: "",

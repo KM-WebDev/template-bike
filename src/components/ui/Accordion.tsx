@@ -1,7 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils/cn";
-import { Accordion, AccordionItem } from "@heroui/accordion";
+import {
+    Accordion as HeroAccordion,
+    AccordionItem as HeroAccordionItem,
+} from "@heroui/accordion";
 import { AccordionItemSlots, SlotsToClasses } from "@heroui/theme";
 
 export interface AccordionEntry {
@@ -21,8 +24,8 @@ export interface AccordionProps {
     dark?: boolean;
 }
 
-// Michael: had to prefix it with "Fancy" to avoid conflicts with HeroUI import above
-export default function FancyAccordion({
+// // Michael: had to prefix it with "Fancy" to avoid conflicts with HeroUI import above
+export default function Accordion({
     entries,
     className,
     itemClassName,
@@ -41,7 +44,7 @@ export default function FancyAccordion({
 
     return (
         <div className={dark ? "dark" : "light"}>
-            <Accordion
+            <HeroAccordion
                 selectionMode="multiple"
                 variant="splitted"
                 defaultExpandedKeys={["0"]}
@@ -49,7 +52,7 @@ export default function FancyAccordion({
             >
                 {entries.map((entry, i) => {
                     return (
-                        <AccordionItem
+                        <HeroAccordionItem
                             aria-label={`Accordion ${i}`}
                             key={i}
                             title={entry.title}
@@ -58,17 +61,24 @@ export default function FancyAccordion({
                             onPress={(e) => {
                                 // Michael: DO NOT TOUCH THIS CODE!!!!
                                 setTimeout(() => {
-                                    const target = e.target.closest(`#${entry.title.replaceAll(" ", "")}`);
+                                    const target = e.target.closest(
+                                        `#${entry.title.replaceAll(" ", "")}`
+                                    );
                                     if (!target) {
                                         return;
                                     }
                                     if (target.getAttribute("data-open")) {
-                                        target.scrollIntoView({ block: "center"});
-                                        target.setAttribute("data-open", "")
+                                        target.scrollIntoView({
+                                            block: "center",
+                                        });
+                                        target.setAttribute("data-open", "");
                                     } else {
-                                        target.setAttribute("data-open", "opened")
+                                        target.setAttribute(
+                                            "data-open",
+                                            "opened"
+                                        );
                                     }
-                                }, 100)
+                                }, 100);
                             }}
                         >
                             <div>
@@ -80,10 +90,10 @@ export default function FancyAccordion({
                                     </div>
                                 )}
                             </div>
-                        </AccordionItem>
+                        </HeroAccordionItem>
                     );
                 })}
-            </Accordion>
+            </HeroAccordion>
         </div>
     );
 }

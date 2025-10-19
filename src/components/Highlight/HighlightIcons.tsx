@@ -3,17 +3,16 @@ import { FaBiking } from "react-icons/fa";
 import { FaBicycle } from "react-icons/fa";
 
 import { cn } from "@/lib/utils/cn";
-import FloatingIcon from "../FloatingIcon";
 import * as motion from "motion/react-client";
 
 export default function HighlightIcons() {
     return (
         <div className="relative h-full">
-            <Icon className="top-[15%] left-[20%] rotate-[-25deg]">
+            {/* <Icon className="top-[-5%] left-[30%] rotate-[-25deg]">
                 <FaBicycle />
             </Icon>
 
-            <Icon className="top-[50%] left-[5%] rotate-[12deg]">
+            <Icon className="top-[10%] left-[15%] rotate-[12deg]">
                 <FaBiking />
             </Icon>
 
@@ -21,15 +20,38 @@ export default function HighlightIcons() {
                 <FaWrench />
             </Icon>
 
-            <Icon className="top-[15%] left-[85%] rotate-[8deg]">
+            <Icon className="top-[-5%] left-[70%] rotate-[8deg]">
                 <FaWrench />
             </Icon>
 
-            <Icon className="top-[50%] left-[95%] rotate-[26deg]">
+            <Icon className="top-[10%] left-[85%] rotate-[26deg]">
                 <FaBicycle />
             </Icon>
 
-            <Icon className="top-[85%] left-[80%] rotate-[12deg]">
+            <Icon className="top-[85%] left-[85%] rotate-[12deg]">
+                <FaBiking />
+            </Icon> */}
+            <Icon className="top-[0%] left-[40%] rotate-[-25deg]">
+                <FaBicycle />
+            </Icon>
+
+            <Icon className="top-[10%] left-[15%] rotate-[12deg]">
+                <FaBiking />
+            </Icon>
+
+            <Icon className="top-[85%] left-[15%] rotate-[10deg]">
+                <FaWrench />
+            </Icon>
+
+            <Icon className="top-[-5%] left-[70%] rotate-[8deg]">
+                <FaWrench />
+            </Icon>
+
+            <Icon className="top-[10%] left-[85%] rotate-[26deg]">
+                <FaBicycle />
+            </Icon>
+
+            <Icon className="top-[85%] left-[85%] rotate-[12deg]">
                 <FaBiking />
             </Icon>
         </div>
@@ -44,7 +66,13 @@ function Icon({
     children: React.ReactNode;
 }) {
     return (
-        <FloatingIcon className={cn("text-[5rem] max-sm:hidden", className)}>
+        <div
+            className={cn(
+                "text-[5rem] text-[#ececec] max-sm:hidden",
+                "absolute -z-10 -translate-x-[50%] -translate-y-[50%]",
+                className
+            )}
+        >
             <motion.div
                 animate={{ rotate: 360 }}
                 transition={{
@@ -53,10 +81,9 @@ function Icon({
                     ease: "linear",
                 }}
                 style={{ transformOrigin: "center" }}
-                className="transform-gpu will-change-transform"
             >
                 {children}
             </motion.div>
-        </FloatingIcon>
+        </div>
     );
 }

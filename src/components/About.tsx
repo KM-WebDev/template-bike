@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Section from "./Section";
+import Section from "./ui/Section";
 import { cn } from "@/lib/utils/cn";
 import { IoPricetag } from "react-icons/io5";
 import { FaClock, FaPhoneAlt } from "react-icons/fa";
-import Button from "./Button";
-import BusinessStat from "./BusinessStat";
-import Badge from "./Budge";
-import Heading from "./Heading";
+import Button from "./ui/Button";
+import BusinessStat from "./ui/BusinessStat";
+import Badge from "./ui/Budge";
+import Heading from "./ui/Heading";
 
 export default function About() {
     return (

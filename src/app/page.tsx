@@ -12,8 +12,8 @@ export default function Page() {
             <Highlight />
             <CallSection />
             <About />
-            <Review />
             <Logos />
+            <Review />
         </>
     );
 }

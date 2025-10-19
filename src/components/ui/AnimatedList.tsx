@@ -175,6 +175,10 @@ export function AnimatedListItem({
     return (
         <div
             ref={itemRef}
+            onClick={() => {
+                setIsHovering(false);
+                setActiveItemRef({ current: null });
+            }}
             className={cn(
                 "inline-block h-fit w-fit",
                 className,

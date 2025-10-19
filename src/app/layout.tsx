@@ -24,12 +24,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className="">
-                <GlobalControls>
-                    <Navigation routes={routes} />
-                    <Main>{children}</Main>
-                    <Footer routes={routes} />
-                </GlobalControls>
+            <body className="bg-black">
+                <div id="scrollable-area" className="bg-clr-bg">
+                    <GlobalControls>
+                        <Navigation routes={routes} />
+                        <Main>{children}</Main>
+                        <Footer routes={routes} />
+                    </GlobalControls>
+                </div>
             </body>
         </html>
     );

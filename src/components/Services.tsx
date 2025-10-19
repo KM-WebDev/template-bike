@@ -1,5 +1,5 @@
-import FancyAccordion, { AccordionEntries } from "./FancyAccordionv2";
-import Section from "./Section";
+import Accordion, { AccordionEntries } from "./ui/Accordion";
+import Section from "./ui/Section";
 
 // Michael: I know this is bad, FIXME later
 import Element from "./Highlight/HighlightElement";
@@ -8,7 +8,7 @@ import { LuWrench } from "react-icons/lu";
 import { FaRegClock } from "react-icons/fa";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { cn } from "@heroui/theme";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 const entries: AccordionEntries = [
     {
@@ -92,13 +92,13 @@ export default function Services() {
                             doświadczonego zespołu.
                         </p>
                     </div>
-                    <div className="flex flex-col items-center gap-10">
+                    <div className="items-center gap-10">
                         <div className="w-full">
-                            <FancyAccordion
+                            <Accordion
                                 entries={entries}
-                                className="gap-10"
+                                className="flex w-full gap-4"
                                 itemClassName={{
-                                    base: "bg-[#E5E7EB] border-1 px-0",
+                                    base: "bg-[#E5E7EB] border-1 px-0 h-fit",
                                     content:
                                         "bg-white rounded-b-medium px-4 py-4",
                                     title: "px-4",
@@ -188,16 +188,14 @@ function Map() {
 
 function GenerateContnet(entries: ServiceEntries) {
     return (
-        <ul className="list-disc px-4">
+        <ul className="h-fit w-full list-disc px-4">
             {entries.map((entry, i) => {
                 return (
-                    <li key={i}>
-                        <div className="flex gap-2">
-                            <div>{entry.name}</div>
-                            <span>-</span>
-                            <div className="font-bold text-red-500">
-                                {entry.price}
-                            </div>
+                    <li key={i} className="flex justify-between gap-2">
+                        <div>{entry.name}</div>
+                        {/* <span>-</span> */}
+                        <div className="font-bold text-red-500">
+                            {entry.price}
                         </div>
                     </li>
                 );

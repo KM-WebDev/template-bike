@@ -1,6 +1,10 @@
 import Image from "next/image";
-import { Carousel, CarouselNextButton, CarouselPrevButton } from "./Carousel";
-import Section from "./Section";
+import {
+    Carousel,
+    CarouselNextButton,
+    CarouselPrevButton,
+} from "./ui/Carousel/Carousel";
+import Section from "./ui/Section";
 import { cn } from "@/lib/utils/cn";
 
 const logos = [
@@ -21,7 +25,7 @@ const logos = [
 
 export default function Logos() {
     return (
-        <Section className="bg-white" paddingSize="sm">
+        <Section className="bg-white py-2" padded={[]}>
             <div className="flex w-fit gap-[5rem]">
                 <Carousel
                     options={{ loop: true }}
@@ -41,7 +45,7 @@ export default function Logos() {
                             <div
                                 className={cn(
                                     "relative flex h-[60px] items-center justify-center",
-                                    "sm:h-[80px]"
+                                    "sm:h-[60px]"
                                 )}
                                 key={logo.name}
                             >

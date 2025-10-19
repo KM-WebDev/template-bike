@@ -2,12 +2,30 @@
 @import "fonts";
 @import "colors";
 
-
 @plugin '../thirdparty/heroui/hero.tsx';
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 
 @theme {
     --breakpoint-xs: 25rem;
+    --color-clr-brand-dark: #dd0303;
+    --color-clr-brand: #fa812f;
+    --color-clr-brand-light: #fab12f;
+    --color-clr-brand-opposite: #fef3e2;
+    --color-clr-bg-dark: oklch(0.92 0 55);
+    --color-clr-bg: oklch(0.9702 0 55);
+    --color-clr-bg-light: oklch(1 0 55);
+    --color-clr-text: oklch(0.15 0 55);
+    --color-clr-text-muted: oklch(0.4 0 55);
+    --color-clr-highlight: oklch(1 0 55);
+    --color-clr-border: oklch(0.6 0 55);
+    --color-clr-border-muted: oklch(0.7 0 55);
+
+    --color-clr-primary: oklch(0.4 0.1 55);
+    --color-clr-secondary: oklch(0.4 0.1 235);
+    --color-clr-danger: oklch(50.003% 0.04929 31.175 / 0.914);
+    --color-clr-warning: oklch(0.5 0.05 100);
+    --color-clr-success: oklch(0.5 0.05 160);
+    --color-clr-info: oklch(0.5 0.05 260);
 }
 
 @layer base {
@@ -34,12 +52,15 @@
     body {
         touch-action: pan-y;
         overflow-x: hidden;
-        font-size: 16px;
+        font-size: 14px;
         color: $text;
-        background: #f5f5f5;
         font-family: "Open Sans", Arial, Helvetica, sans-serif;
 
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+
+        @media screen and (min-width: 640px) {
+            font-size: 16px;
+        }
     }
 }

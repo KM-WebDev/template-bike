@@ -17,6 +17,7 @@ export default function NavigationHeightPadding({
     const resizeHandler = useCallback(() => {
         if (navRef.current && paddingRef.current) {
             const { height } = navRef.current.getBoundingClientRect();
+            console.log(height);
             paddingRef.current.style.height = height.toString() + "px";
         }
     }, [navRef, paddingRef]);

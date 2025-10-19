@@ -1,11 +1,11 @@
-import Logo from "./Logo";
+import Logo from "./ui/Logo";
 
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 
 import { FaLinkedin } from "react-icons/fa6";
-import { NavigationProps, NavigationRoutes } from "./Navigation/Navigation.server";
+import { NavigationProps, NavigationRoutes } from "./Navigation/Navigation.d";
 import { cn } from "@/lib/utils/cn";
 
 export default function Footer({ routes }: NavigationProps) {
@@ -63,10 +63,7 @@ function NavigationSection({ routes }: NavigationProps) {
                 "max-xs:flex-col"
             )}
         >
-            <NavigationList
-                title="Szybka nawigacja:"
-                routes={routes}
-            />
+            <NavigationList title="Szybka nawigacja:" routes={routes} />
             <NavigationList
                 title="Legal:"
                 routes={[
@@ -83,7 +80,7 @@ function SocialSection() {
         <div className="flex flex-col items-center gap-4">
             <p className="text-[#848484]">Znajdziesz nas również tutaj:</p>
 
-            <div className="flex text-[2rem] gap-2">
+            <div className="flex gap-2 text-[2rem]">
                 <SocialButton link="https://facebook.com">
                     <FaFacebookSquare />
                 </SocialButton>
