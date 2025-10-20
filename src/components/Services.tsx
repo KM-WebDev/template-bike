@@ -97,6 +97,7 @@ export default function Services() {
                     <div className="items-center gap-10">
                         <div className="grid gap-4 lg:grid-cols-2">
                             <ServiceAccordion
+                                openFirst={true}
                                 entries={entries.slice(
                                     0,
                                     entries.length / 2 + 1
@@ -127,10 +128,11 @@ export default function Services() {
     );
 }
 
-function ServiceAccordion({ entries }: { entries: AccordionEntries }) {
+function ServiceAccordion({ entries, openFirst = false }: { entries: AccordionEntries, openFirst?: boolean }) {
     return (
         <Accordion
             entries={entries}
+            openFirst={openFirst}
             className="flex gap-4"
             itemClassName={{
                 base: "bg-[#E5E7EB] border-1 px-0 h-fit",

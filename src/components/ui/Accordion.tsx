@@ -22,6 +22,7 @@ export interface AccordionProps {
     className?: string;
     itemClassName?: AccordionItemClassName;
     dark?: boolean;
+    openFirst: boolean;
 }
 
 export default function Accordion({
@@ -29,6 +30,7 @@ export default function Accordion({
     className,
     itemClassName,
     dark,
+    openFirst = false,
 }: AccordionProps) {
     if (!itemClassName) {
         itemClassName = {};
@@ -46,7 +48,7 @@ export default function Accordion({
             <HeroAccordion
                 selectionMode="multiple"
                 variant="splitted"
-                defaultExpandedKeys={["0"]}
+                defaultExpandedKeys={[openFirst ? "0" : ""]}
                 className={className}
             >
                 {entries.map((entry, i) => {
