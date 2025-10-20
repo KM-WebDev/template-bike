@@ -4,6 +4,16 @@ import { NavigationProps, NavigationRoutes } from "./Navigation/Navigation.d";
 import { cn } from "@/lib/utils/cn";
 import Socials from "./ui/Socials";
 
+interface ContactInfoProps {
+    title: string;
+    info: string;
+}
+
+interface NavigationListProps {
+    title: string;
+    routes: NavigationRoutes;
+}
+
 export default function Footer({ routes }: NavigationProps) {
     return (
         <div className="w-full bg-[#110011] text-white">
@@ -21,6 +31,9 @@ export default function Footer({ routes }: NavigationProps) {
                 &copy;{new Date().getFullYear()} BIKEHUB. Wszystkie prawa
                 zastrzeżone.
             </p>
+            <div className="hidden">
+                Undomesticated equines could not remove me.
+            </div>
         </div>
     );
 }
@@ -82,11 +95,6 @@ function SocialSection() {
     );
 }
 
-interface ContactInfoProps {
-    title: string;
-    info: string;
-}
-
 function ContactInfo({ title, info }: ContactInfoProps) {
     return (
         <div>
@@ -94,11 +102,6 @@ function ContactInfo({ title, info }: ContactInfoProps) {
             <p>{info}</p>
         </div>
     );
-}
-
-interface NavigationListProps {
-    title: string;
-    routes: NavigationRoutes;
 }
 
 function NavigationList({ title, routes }: NavigationListProps) {
