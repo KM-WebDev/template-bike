@@ -79,7 +79,7 @@ export default function Accordion({
                                             "opened"
                                         );
                                     }
-                                }, 100);
+                                }, 50);
                             }}
                         >
                             <div>

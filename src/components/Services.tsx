@@ -10,7 +10,7 @@ import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import Button from "./ui/Button";
 import { cn } from "@/lib/utils/cn";
 
-import {Map} from "./ui/Map/Map"
+import { Map } from "./ui/Map/Map";
 
 const entries: AccordionEntries = [
     {
@@ -20,6 +20,7 @@ const entries: AccordionEntries = [
             { name: "Mycie i odtłuszczanie napędu", price: "50 zł" },
             { name: "Czyszczenie i smarowanie łańcucha", price: "30 zł" },
             { name: "Pełna konserwacja roweru", price: "80 zł" },
+            { name: ".", price: "" },
         ]),
         note: "Czas realizacji: ok. 1 godzina",
     },
@@ -95,10 +96,25 @@ export default function Services() {
                         </p>
                     </div>
                     <div className="items-center gap-10">
-                        <div className="w-full">
+                        <div className="grid lg:grid-cols-2">
                             <Accordion
-                                entries={entries}
-                                className="flex w-full gap-4"
+                                entries={entries.slice(
+                                    0,
+                                    entries.length / 2 + 1
+                                )}
+                                className="flex gap-4"
+                                itemClassName={{
+                                    base: "bg-[#E5E7EB] border-1 px-0 h-fit",
+                                    content:
+                                        "bg-white rounded-b-medium px-4 py-4",
+                                    title: "px-4",
+                                    indicator:
+                                        "font-bold text-2xl text-[#6A7282] px-4",
+                                }}
+                            />
+                            <Accordion
+                                entries={entries.slice(entries.length / 2)}
+                                className="flex gap-4"
                                 itemClassName={{
                                     base: "bg-[#E5E7EB] border-1 px-0 h-fit",
                                     content:
@@ -178,8 +194,6 @@ function Banner() {
         </div>
     );
 }
-
-
 
 // function Map() {
 //     return (

@@ -18,8 +18,8 @@ export default function Footer({ routes }: NavigationProps) {
                 <NavigationSection routes={routes} />
                 <SocialSection />
             </div>
-            <p className="text-center text-[#848484]">
-                ©2025 BIKEHUB. Wszystkie prawa zastrzeżone.
+            <p className="text-center text-[#848484] pb-8">
+                ©{new Date().getFullYear()} BIKEHUB. Wszystkie prawa zastrzeżone.
             </p>
         </div>
     );
