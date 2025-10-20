@@ -1,12 +1,9 @@
 import Logo from "./ui/Logo";
 
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
 
-import { FaLinkedin } from "react-icons/fa6";
 import { NavigationProps, NavigationRoutes } from "./Navigation/Navigation.d";
 import { cn } from "@/lib/utils/cn";
+import Socials from "./ui/Socials";
 
 export default function Footer({ routes }: NavigationProps) {
     return (
@@ -80,20 +77,7 @@ function SocialSection() {
         <div className="flex flex-col items-center gap-4">
             <p className="text-[#848484]">Znajdziesz nas również tutaj:</p>
 
-            <div className="flex gap-2 text-[2rem]">
-                <SocialButton link="https://facebook.com">
-                    <FaFacebookSquare />
-                </SocialButton>
-                <SocialButton link="https://instagram.com">
-                    <FaInstagramSquare />
-                </SocialButton>
-                <SocialButton link="https://x.com">
-                    <FaSquareXTwitter />
-                </SocialButton>
-                <SocialButton link="https://linkedin.com">
-                    <FaLinkedin />
-                </SocialButton>
-            </div>
+            <Socials />
         </div>
     );
 }
@@ -133,18 +117,5 @@ function NavigationList({ title, routes }: NavigationListProps) {
                 })}
             </ul>
         </div>
-    );
-}
-
-interface SocialProps {
-    link: string;
-    children: React.ReactNode;
-}
-
-function SocialButton({ link, children }: SocialProps) {
-    return (
-        <a target="_blank" href={link}>
-            {children}
-        </a>
     );
 }

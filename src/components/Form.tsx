@@ -1,5 +1,7 @@
 import { getBackgroundImage } from "@/lib/utils/images";
 import { getImageProps } from "next/image";
+import Socials from "./ui/Socials";
+import Button from "./ui/Button";
 
 export default function Form() {
     const {
@@ -32,14 +34,10 @@ export default function Form() {
                                 doloribus, error sed.
                             </p>
 
-                            <button className="focus:ring-opacity-50 mt-6 transform rounded-md bg-blue-600 px-8 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 hover:bg-blue-500 focus:ring focus:ring-blue-400 focus:outline-none">
-                                get in touch
-                            </button>
-
-                            <div className="mt-6 md:mt-8">
+                            <div className="flex flex-col mt-6 md:mt-8 gap-2">
                                 <h3 className="text-gray-300">Follow us</h3>
-
-                                <div className="-mx-1.5 mt-4 flex">
+                                <Socials />
+                                {/* <div className="-mx-1.5 mt-4 flex">
                                     <a
                                         className="mx-1.5 transform text-white transition-colors duration-300 hover:text-blue-500"
                                         href="#"
@@ -112,7 +110,7 @@ export default function Form() {
                                             />
                                         </svg>
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -162,9 +160,9 @@ export default function Form() {
                                         ></textarea>
                                     </div>
 
-                                    <button className="focus:ring-opacity-50 mt-6 w-full transform rounded-md bg-blue-600 px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 hover:bg-blue-500 focus:ring focus:ring-blue-400 focus:outline-none">
-                                        get in touch
-                                    </button>
+                                    <Button className="w-full mt-5">
+                                        Wyślij wiadomość
+                                    </Button>
                                 </form>
                             </div>
                         </div>
