@@ -7,8 +7,10 @@ import Element from "./Highlight/HighlightElement";
 import { LuWrench } from "react-icons/lu";
 import { FaRegClock } from "react-icons/fa";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
-import { cn } from "@heroui/theme";
 import Button from "./ui/Button";
+import { cn } from "@/lib/utils/cn";
+
+import {Map} from "./ui/Map/Map"
 
 const entries: AccordionEntries = [
     {
@@ -177,14 +179,16 @@ function Banner() {
     );
 }
 
-function Map() {
-    return (
-        <div className="flex flex-row items-center justify-center">
-            <div className="flex h-[300px] w-[500px] bg-gray-400">Mapa</div>
-            <p>Znajdziesz nas tutaj</p>
-        </div>
-    );
-}
+
+
+// function Map() {
+//     return (
+//         <div className="flex flex-row items-center justify-center">
+//             <div className="flex h-[300px] w-[500px] bg-gray-400">Mapa</div>
+//             <p>Znajdziesz nas tutaj</p>
+//         </div>
+//     );
+// }
 
 function GenerateContnet(entries: ServiceEntries) {
     return (
