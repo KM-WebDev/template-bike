@@ -18,7 +18,7 @@ export default function Footer({ routes }: NavigationProps) {
                 <SocialSection />
             </div>
             <p className="pb-8 text-center text-[#848484]">
-                ©{new Date().getFullYear()} BIKEHUB. Wszystkie prawa
+                &copy;{new Date().getFullYear()} BIKEHUB. Wszystkie prawa
                 zastrzeżone.
             </p>
         </div>
