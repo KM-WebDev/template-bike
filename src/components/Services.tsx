@@ -95,7 +95,7 @@ export default function Services() {
                         </p>
                     </div>
                     <div className="items-center gap-10">
-                        <div className="grid lg:grid-cols-2">
+                        <div className="grid lg:grid-cols-2 gap-4">
                             <Accordion
                                 entries={entries.slice(
                                     0,
