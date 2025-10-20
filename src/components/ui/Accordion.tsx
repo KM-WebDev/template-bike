@@ -24,7 +24,6 @@ export interface AccordionProps {
     dark?: boolean;
 }
 
-// // Michael: had to prefix it with "Fancy" to avoid conflicts with HeroUI import above
 export default function Accordion({
     entries,
     className,
