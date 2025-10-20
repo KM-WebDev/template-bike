@@ -1,6 +1,5 @@
 import Logo from "./ui/Logo";
 
-
 import { NavigationProps, NavigationRoutes } from "./Navigation/Navigation.d";
 import { cn } from "@/lib/utils/cn";
 import Socials from "./ui/Socials";
@@ -18,8 +17,9 @@ export default function Footer({ routes }: NavigationProps) {
                 <NavigationSection routes={routes} />
                 <SocialSection />
             </div>
-            <p className="text-center text-[#848484] pb-8">
-                ©{new Date().getFullYear()} BIKEHUB. Wszystkie prawa zastrzeżone.
+            <p className="pb-8 text-center text-[#848484]">
+                ©{new Date().getFullYear()} BIKEHUB. Wszystkie prawa
+                zastrzeżone.
             </p>
         </div>
     );

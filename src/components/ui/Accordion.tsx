@@ -69,7 +69,7 @@ export default function Accordion({
                                     if (target.getAttribute("data-open")) {
                                         target.scrollIntoView({
                                             block: "center",
-                                            behavior: "smooth"
+                                            behavior: "smooth",
                                         });
                                         target.setAttribute("data-open", "");
                                     } else {

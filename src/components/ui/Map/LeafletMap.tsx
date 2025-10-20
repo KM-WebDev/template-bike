@@ -7,34 +7,6 @@ import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 import { useEffect } from "react";
 
 export default function Map() {
-    // const [isCtrlClicked, setCtrlClicked] = useState<boolean>(false);
-    // useEffect(() => {
-    //     const downHandler = (e: KeyboardEvent) => {
-    //         if (e.ctrlKey) {
-    //             // document.addEventListener("wheel", (e) => {
-    //                 // e.preventDefault();
-    //             // });
-    //             e.preventDefault();
-    //             setCtrlClicked(true);
-    //         }
-    //     };
-    //     const upHandler = (e: KeyboardEvent) => {
-            
-    //         if (e.ctrlKey) {
-    //             setCtrlClicked(false);
-    //         }
-    //     };
-
-    //     document.addEventListener("keydown", downHandler);
-    //     document.addEventListener("keyup", upHandler);
-        
-    //     return () => {
-    //         document.removeEventListener("keydown", downHandler);
-
-    //         document.removeEventListener("keyup", upHandler);
-    //     };
-    // }, []);
-
     return (
         <MapContainer
             center={[51.505, -0.09]}
@@ -60,15 +32,14 @@ export default function Map() {
     );
 }
 
-
 const MapController = () => {
-  const map = useMap();
-  
-  useEffect(() => {
-    map.addHandler("gestureHandling", GestureHandling);
-    // @ts-expect-error typescript does not see additional handler here
-    map.gestureHandling.enable();
-  }, [map]);
+    const map = useMap();
 
-  return null;
-}
+    useEffect(() => {
+        map.addHandler("gestureHandling", GestureHandling);
+        // @ts-expect-error typescript does not see additional handler here
+        map.gestureHandling.enable();
+    }, [map]);
+
+    return null;
+};

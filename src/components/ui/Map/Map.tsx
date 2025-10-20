@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const Map = dynamic(() => import('./LeafletMap'), {
-  ssr: false
+const Map = dynamic(() => import("./LeafletMap"), {
+    ssr: false,
 });
 
-export {Map};
+export { Map };
