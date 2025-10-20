@@ -62,10 +62,10 @@ function NavigationSection({ routes }: NavigationProps) {
         >
             <NavigationList title="Szybka nawigacja:" routes={routes} />
             <NavigationList
-                title="Legal:"
+                title="Informacje prawne:"
                 routes={[
                     { name: "Polityka Prywatności", link: "/pp" },
-                    { name: "Terms of Service", link: "/tos" },
+                    { name: "Warunki korzystania z usługi", link: "/tos" },
                 ]}
             />
         </div>
