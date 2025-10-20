@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils/cn";
 import styles from "./Highlight.module.scss";
+import Heading from "../ui/Heading";
 
 interface ElementProps {
     children: React.ReactNode;
@@ -35,7 +36,7 @@ export default function Element({ children, title, content }: ElementProps) {
                     "md:text-center"
                 )}
             >
-                <p className="text-[1.2rem] font-bold">{title}</p>
+                <Heading semantic="h3">{title}</Heading>
                 <p className={cn("flex")}>{content}</p>
             </div>
         </div>

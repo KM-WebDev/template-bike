@@ -15,10 +15,7 @@ export default function About() {
                 className="relative flex flex-col gap-10"
                 gapped={false}
             >
-                <Heading
-                    semantic="h2"
-                    className="text-center text-3xl font-bold"
-                >
+                <Heading semantic="h2" className="text-center">
                     Lorem ipsum dolor sit amet consectetur.
                 </Heading>
                 <div className="flex flex-col gap-8 md:flex-row md:gap-6">
@@ -58,7 +55,7 @@ function Content() {
                 )}
             >
                 <div className="flex flex-col gap-2 md:gap-3">
-                    <h2 className="text-2xl font-bold">Ludzie i relacje</h2>
+                    <Heading semantic="h3">Ludzie i relacje</Heading>
                     <p>
                         Chcemy tworzyć miejsce, do którego chętnie się wraca –
                         nie tylko po naprawę, ale też po dobrą radę i pozytywną

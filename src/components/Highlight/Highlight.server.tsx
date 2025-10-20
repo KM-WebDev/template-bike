@@ -8,6 +8,7 @@ import styles from "./Highlight.module.scss";
 import Button from "../ui/Button";
 import Section from "../ui/Section";
 import Element from "./HighlightElement";
+import Heading from "../ui/Heading";
 
 export default function HighlightServer() {
     return (
@@ -24,7 +25,7 @@ function TopSection() {
     return (
         <div className="relative flex flex-col items-center justify-between gap-6">
             <div className="z-5 flex flex-col items-center gap-2">
-                <p className="text-[2.8rem] font-bold">Ludzie i Relacje</p>
+                <Heading semantic="h2">Ludzie i Relacje</Heading>
                 <p
                     className={cn(
                         "w-full text-center leading-[1.8] sm:w-[60%]",

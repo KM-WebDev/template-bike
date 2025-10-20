@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 const routes: NavigationRoutes = [
     { name: "Home", link: "/" },
-    { name: "O nas", link: "about" },
     { name: "Usługi", link: "/services" },
+    { name: "Kontakt", link: "contact" },
 ];
 
 export default function RootLayout({

@@ -7,11 +7,13 @@ import {
 } from "@/components/ui/Carousel/Carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Button from "./ui/Button";
+import Heading from "./ui/Heading";
 
 export default function Review() {
     return (
         <Section className="bg-rose-800 md:!p-[4rem]">
             <Section.Content className="items-center">
+                <Heading semantic="h2">Zobacz opinie naszych klientów</Heading>
                 <Carousel
                     slides={Array(8)
                         .fill(0)
