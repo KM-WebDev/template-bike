@@ -20,7 +20,6 @@ const entries: AccordionEntries = [
             { name: "Mycie i odtłuszczanie napędu", price: "50 zł" },
             { name: "Czyszczenie i smarowanie łańcucha", price: "30 zł" },
             { name: "Pełna konserwacja roweru", price: "80 zł" },
-            { name: ".", price: "" },
         ]),
         note: "Czas realizacji: ok. 1 godzina",
     },
@@ -113,7 +112,7 @@ export default function Services() {
                                 }}
                             />
                             <Accordion
-                                entries={entries.slice(entries.length / 2)}
+                                entries={entries.slice(entries.length / 2 + 1)}
                                 className="flex gap-4"
                                 itemClassName={{
                                     base: "bg-[#E5E7EB] border-1 px-0 h-fit",
@@ -195,24 +194,15 @@ function Banner() {
     );
 }
 
-// function Map() {
-//     return (
-//         <div className="flex flex-row items-center justify-center">
-//             <div className="flex h-[300px] w-[500px] bg-gray-400">Mapa</div>
-//             <p>Znajdziesz nas tutaj</p>
-//         </div>
-//     );
-// }
-
 function GenerateContnet(entries: ServiceEntries) {
     return (
-        <ul className="h-fit w-full list-disc px-4">
+        <ul className="flex h-fit w-full list-disc flex-col gap-2 min-sm:px-4">
             {entries.map((entry, i) => {
                 return (
                     <li key={i} className="flex justify-between gap-2">
                         <div>{entry.name}</div>
                         {/* <span>-</span> */}
-                        <div className="font-bold text-red-500">
+                        <div className="flex min-w-16 justify-end font-bold text-red-500">
                             {entry.price}
                         </div>
                     </li>
