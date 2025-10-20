@@ -15,7 +15,7 @@ interface ButtonProps {
 
 const typeVariants = {
     primary: "bg-clr-brand-dark text-clr-bg border-2 border-clr-brand-dark",
-    opposite: "bg-clr-bg text-clr-text border-2 border-clr-bg ",
+    opposite: "bg-clr-bg text-clr-text border-2 border-clr-bg",
     secondary: "text-clr-bg border-2 border-clr-brand-dark",
     transparent: "backdrop-blur text-clr-bg bg-clr-bg/10",
 };

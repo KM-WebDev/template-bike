@@ -13,10 +13,10 @@ export default function Form() {
         src: "/form-wall.jpg",
     });
     const backgroundImage = getBackgroundImage(srcSet);
-    const style = { height: "100vh", width: "100vw", backgroundImage };
+    const style = { backgroundImage };
 
     return (
-        <section className="min-h-screen bg-cover" style={style}>
+        <section className="h-fit min-h-screen bg-cover" style={style}>
             <div className="flex min-h-screen flex-col bg-black/60">
                 <div className="container mx-auto flex flex-1 flex-col px-6 py-12">
                     <div className="flex-1 lg:-mx-6 lg:flex lg:items-center">

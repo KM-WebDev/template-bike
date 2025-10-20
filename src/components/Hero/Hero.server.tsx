@@ -16,7 +16,7 @@ const textTransition = {
 
 export default function HeroServer() {
     return (
-        <div className="relative z-1 flex h-[70vh] w-full items-center justify-center overflow-hidden px-8 py-0 md:h-[100vh]">
+        <div className="relative z-1 flex h-[70vh] w-full items-center justify-center overflow-hidden bg-black px-8 py-0 md:h-[100vh]">
             <Background />
             <HeroImage />
             <HeroContent />

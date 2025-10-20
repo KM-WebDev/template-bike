@@ -13,7 +13,9 @@ export default function Review() {
     return (
         <Section className="bg-rose-800 md:!p-[4rem]">
             <Section.Content className="items-center">
-                <Heading semantic="h2">Zobacz opinie naszych klientów</Heading>
+                <Heading semantic="h2" className="text-clr-bg">
+                    Zobacz opinie naszych klientów
+                </Heading>
                 <Carousel
                     slides={Array(8)
                         .fill(0)
@@ -38,9 +40,6 @@ export default function Review() {
                         </CarouselNextButton>
                     </div>
                 </Carousel>
-                <Button type="opposite" className="w-fit">
-                    Zobacz
-                </Button>
             </Section.Content>
         </Section>
     );
