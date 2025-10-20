@@ -95,33 +95,15 @@ export default function Services() {
                         </p>
                     </div>
                     <div className="items-center gap-10">
-                        <div className="grid lg:grid-cols-2 gap-4">
-                            <Accordion
+                        <div className="grid gap-4 lg:grid-cols-2">
+                            <ServiceAccordion
                                 entries={entries.slice(
                                     0,
                                     entries.length / 2 + 1
                                 )}
-                                className="flex gap-4"
-                                itemClassName={{
-                                    base: "bg-[#E5E7EB] border-1 px-0 h-fit",
-                                    content:
-                                        "bg-white rounded-b-medium px-4 py-4",
-                                    title: "px-4",
-                                    indicator:
-                                        "font-bold text-2xl text-[#6A7282] px-4",
-                                }}
                             />
-                            <Accordion
+                            <ServiceAccordion
                                 entries={entries.slice(entries.length / 2 + 1)}
-                                className="flex gap-4"
-                                itemClassName={{
-                                    base: "bg-[#E5E7EB] border-1 px-0 h-fit",
-                                    content:
-                                        "bg-white rounded-b-medium px-4 py-4",
-                                    title: "px-4",
-                                    indicator:
-                                        "font-bold text-2xl text-[#6A7282] px-4",
-                                }}
                             />
                         </div>
                     </div>
@@ -142,6 +124,21 @@ export default function Services() {
                 </Section.Content>
             </Section>
         </>
+    );
+}
+
+function ServiceAccordion({ entries }: { entries: AccordionEntries }) {
+    return (
+        <Accordion
+            entries={entries}
+            className="flex gap-4"
+            itemClassName={{
+                base: "bg-[#E5E7EB] border-1 px-0 h-fit",
+                content: "bg-white rounded-b-medium px-4 py-4",
+                title: "px-4",
+                indicator: "font-bold text-2xl text-[#6A7282] px-4",
+            }}
+        />
     );
 }
 
