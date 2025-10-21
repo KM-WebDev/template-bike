@@ -18,8 +18,8 @@ export default function Form() {
 
     return (
         <section className="h-fit min-h-screen bg-cover" style={style}>
-            <NavigationHeightPadding />
             <div className="flex min-h-screen flex-col bg-black/60">
+            <NavigationHeightPadding />
                 <div className="container mx-auto flex flex-1 flex-col px-6 py-12">
                     <div className="flex-1 lg:-mx-6 lg:flex lg:items-center">
                         <div className="text-white lg:mx-6 lg:w-1/2">
