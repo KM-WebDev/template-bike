@@ -2,6 +2,7 @@ import { getBackgroundImage } from "@/lib/utils/images";
 import { getImageProps } from "next/image";
 import Socials from "./ui/Socials";
 import Button from "./ui/Button";
+import NavigationHeightPadding from "./Navigation/NavigationHeightPadding";
 
 export default function Form() {
     const {
@@ -17,6 +18,7 @@ export default function Form() {
 
     return (
         <section className="h-fit min-h-screen bg-cover" style={style}>
+            <NavigationHeightPadding />
             <div className="flex min-h-screen flex-col bg-black/60">
                 <div className="container mx-auto flex flex-1 flex-col px-6 py-12">
                     <div className="flex-1 lg:-mx-6 lg:flex lg:items-center">
@@ -34,8 +36,10 @@ export default function Form() {
                                 doloribus, error sed.
                             </p>
 
-                            <div className="flex flex-col mt-6 md:mt-8 gap-2">
-                                <h3 className="text-gray-300">Nasze sociale:</h3>
+                            <div className="mt-6 flex flex-col gap-2 md:mt-8">
+                                <h3 className="text-gray-300">
+                                    Nasze sociale:
+                                </h3>
                                 <Socials />
                             </div>
                         </div>
@@ -47,7 +51,8 @@ export default function Form() {
                                 </h1>
 
                                 <p className="mt-2 text-gray-500 dark:text-gray-400">
-                                    Masz pytanie? Napisz do nas. Skontaktujemy się z tobą w ciągu 24 godzin.
+                                    Masz pytanie? Napisz do nas. Skontaktujemy
+                                    się z tobą w ciągu 24 godzin.
                                 </p>
 
                                 <form className="mt-6">
@@ -85,7 +90,7 @@ export default function Form() {
                                         ></textarea>
                                     </div>
 
-                                    <Button className="w-full mt-5">
+                                    <Button className="mt-5 w-full">
                                         Wyślij wiadomość
                                     </Button>
                                 </form>
